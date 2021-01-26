@@ -1,4 +1,6 @@
 #! /bin/bash
+# must have macchanger program installed to run this script
+# double check the names of your network devices and change them from wlan0, and eth0 as necessary
 
 echo "reconfiguring wifi and ethernet..."
 
