@@ -7,8 +7,7 @@ personal bash scripts
 
 #### JVS
 
-jvs - **V**pn **S**urf
-script that interacts with ProtonVpn api to make quickly switching vpn servers (type and location) quick and painless from the command line
+jvs - (VPN SURF) script that interacts with ProtonVpn api allows quickly switching vpn servers (type and location) from the command line
 
 macchangerRandom.sh - quickly spoof both wifi and ethernet mac addresses to random configuration
 
