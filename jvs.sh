@@ -44,11 +44,11 @@ function protonvpnStatus()
 
 
 function disconnect()
-{
+{    
+    sudo protonvpn disconnect
     echo "--------------------"
     echo "    DISCONNECTED    "
     echo "--------------------"
-    sudo protonvpn disconnect
     protonvpn status
 }
 
