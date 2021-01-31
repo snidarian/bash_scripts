@@ -8,6 +8,7 @@ alias cls='clear && ls' # Great command. Clears terminal and lists files in curr
 alias clls='clear && ls -l'                                                                   
 alias clas='clear && ls -a'                                                                   
 alias cllas='clear && ls -la'                                                                 
+alias numberedls='j=0; for i in `ls`; do j=$(expr $j + 1); echo "$j. $i"; done' # numbers ls output. Can be useful. Has bug: doesn't handle whitespaces well but that's more a fault of the bash for loop than anything. I'll figure out how to fix it
 
 # history search aliases
 alias tailhist='history | tail -n $1'                                                         
