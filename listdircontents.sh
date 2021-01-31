@@ -1,4 +1,6 @@
 #!/bin/bash
+# list directory contents, and if some of those contents are directories; list their contents as well
+
 
 TARGETDIR=${1?Error: Supply target directory}
 OUTPUTFILE=${2:-outputlistfile.txt}
