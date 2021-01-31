@@ -1,5 +1,6 @@
 #!/bin/bash
 # list directory contents, and if some of those contents are directories; list their contents as well
+# script creates file to store resulting output
 
 
 TARGETDIR=${1?Error: Supply target directory}
