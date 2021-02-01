@@ -6,6 +6,7 @@
 
 function connectp2p()
 {
+    
     echo "----------------------------------------------"
     echo "########  Connecting  to P2P server ##########"
     echo "########  ########################  ##########"
@@ -51,8 +52,6 @@ function disconnect()
     echo "--------------------"
     protonvpn status
 }
-
-
 
 # EXECUTIONS
 
