@@ -27,3 +27,6 @@ lsdircontents.sh - wrote for specific use case - likely to not need again but wo
 
 
 
+
+
+
