@@ -7,6 +7,9 @@ jvs.sh - (Vpn Surf) script that interacts with ProtonVpn api allows quickly swit
 
 macchangerRandom.sh - quickly spoof both wifi and ethernet mac addresses to random configuration
 
+alarm.sh - $1 to set hour value, $2 to set minute value (24-hour time format)
+
+
 
 ### Quick reference and safe keeping
 
