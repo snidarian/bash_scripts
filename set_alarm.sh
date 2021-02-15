@@ -1,20 +1,11 @@
 #! /usr/bin/bash
 # This script sets an alarm in 24-hour time
 # path the final media player command to an alarm audio file
+# $1 sets alarm hour value, $2 sets alarm minute value (24 hour time keep in mind)
 
-# haven't determined if these declare statements are efficient.
-# I'm leaving them here until I can revist the subject and determine if they are
-#declare -i set_hour
-#declare -i set_minute
-#declare -i current_hour
-#declare -i current minute
-#declare -i hrs_left
-#declare -i mins_left
 
-echo -e "Set alarm hour value"
-read set_hour
-echo -e "Set alarm minute value"
-read set_minute
+set_hour=$1
+set_minute=$2
 
 echo "Alarm set for $set_hour:$set_minute"
 
@@ -65,6 +56,7 @@ sleep $minutes_left\m
 
 # alarm absolute filepath
 vlc --play-and-exit ~/Music/.user_sounds/fire_alarm.mp3
+
 
 
 
