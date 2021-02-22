@@ -28,7 +28,7 @@ else
     echo "===========================================================" >> $outputfilename
     passwordbatchid=$(apg -n 1 -x 5 -m 5)
     echo -ne "Password Batch ID: $passwordbatchid\n" >> $outputfilename
-    echo -ne "$passquantity passwords at length of $passlength chars\n\n:" >> $outputfilename
+    echo -ne "$passquantity passwords at length of $passlength chars:\n\n" >> $outputfilename
 
     num=1
 
