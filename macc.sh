@@ -1,5 +1,9 @@
 #! /bin/bash                                                                                  
 
+
+# Add feature - show current max address for all devices
+
+
 # macchanger program and ifconfig command are required to use this script.
 # Rename $wifidev and $ethdev to your specific hardware device-names
 
@@ -29,5 +33,9 @@ echo "------------------------------------------------"
 
 
 echo "################MACADDRESSREASSIGN#################"
+
+
+
+
 
 
