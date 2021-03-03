@@ -17,7 +17,7 @@ alias histcount='history | grep -ic $1'
 
 # user permissions aliases
 alias authorize='sudo chmod +766'                                                               
-alias deauthorize='sudo chmod -777'                                                                                              
+alias deauthorize='sudo chmod -677'                                                                                              
                                                                                               
 # emacs alias definitions                                                                                                                                           
 alias anthomacs='emacs -nw -bg color-20 -fg yellow' 
