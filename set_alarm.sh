@@ -1,13 +1,25 @@
+
 #! /usr/bin/bash
 # This script sets an alarm in 24-hour time
 # path the final media player command to an alarm audio file
 # $1 sets alarm hour value, $2 sets alarm minute value (24 hour time keep in mind)
 
-# numberical constants
+
+# Ansi color escape sequences
+
+red_bold="\e[1;31m"
+gold_bold="\e[1;33m"
+cyan_bold="\e[1;36m"
+reset="\e[0m"
+
+
+
+# numerical constants
+seconds_in_minute=60
 minutes_in_hour=60
 hours_in_day=24
 
-
+# Argv1 and argv2
 set_hour=$1
 set_minute=$2
 
@@ -64,20 +76,60 @@ else
 fi
 
 
-echo -ne "#          (10%)\r"
-sleep 1
+
+# convert all hour_left to minutes and then add to total of minutes_left
+converted_hours_left=$(expr $hours_left \* 60)
+
+minutes_left=$(expr $minutes_left + $converted_hours_left)
+
+seconds_left=$(expr $minutes_left \* $seconds_in_minute)
 
 
+# progress bar incrementation factor - how we know how much to equally sleep in each loop
+progress_incr=$(expr $seconds_left \/ 100)
 
 
-# sleep x number of hours and minutes
-sleep $hours_left\h
-sleep $minutes_left\m
+echo "--------------------------------------------------------------"
 
 
+# Code that governs progress bar and for loop that meters alarm time
+for ((i=0; i<=100; i++)); do
+    # new variable for display number of mins left in progress var
+    secs_left=$(expr $(expr 100 - $i) \* $progress_incr)
+    mins_left=$(expr $secs_left \/ $seconds_in_minute)
+    
+    if [ $i -gt 0 ]; then
+	for ((j=0; j<i; j++)); do
+	    echo -ne "${gold_bold}=${reset}"
+    
+	done
+    fi
 
-# alarm absolute filepath
-vlc --play-and-exit ~/Music/.user_sounds/fire_alarm.mp3
+    echo -ne ">"
+    echo -ne " ${red_bold}($i%)${reset}"
+
+    if [ $mins_left -eq 0 ]; then
+	echo -ne "${cyan_bold}($secs_left secs)${reset}\r"
+    else
+	echo -ne "${cyan_bold}($mins_left mins)${reset}\r"
+    fi
+    sleep $progress_incr
+done
+
+echo -ne "\n"
 
 
+# Alarm sequence - simplest plug and play way is to use echo terminal alarm escape character in a timed sequence
+
+for ((i=0;i<=100;i++)); do
+
+    sleep 1
+    echo -ne "\a"
+    sleep .5
+    echo -ne "\a"
+    sleep .2
+    echo -ne "\a"
+    sleep 1
+    
+done
 
