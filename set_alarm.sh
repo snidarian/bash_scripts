@@ -4,20 +4,18 @@
 # path the final media player command to an alarm audio file
 # $1 sets alarm hour value, $2 sets alarm minute value (24 hour time keep in mind)
 
-
 # Ansi color escape sequences
-
 red_bold="\e[1;31m"
 gold_bold="\e[1;33m"
 cyan_bold="\e[1;36m"
 reset="\e[0m"
 
 
-
 # numerical constants
 seconds_in_minute=60
 minutes_in_hour=60
 hours_in_day=24
+
 
 # Argv1 and argv2
 set_hour=$1
@@ -74,7 +72,6 @@ elif [ $minutes_left -eq 0 ]; then
 else
     echo "Alarm will go off in $hours_left hours, $minutes_left minutes"
 fi
-
 
 
 # convert all hour_left to minutes and then add to total of minutes_left
