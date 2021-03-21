@@ -29,11 +29,12 @@ current_day_of_month=$(date +%d)
 
 # Historical events variables
 
-
+rome_destroys_carthage=`expr $current_year + 146`
 birth_muhammad=`expr $current_year - 570`
 black_plague=`expr $current_year - 1353`
 invention_printing_press=`expr $current_year - 1440`
 constantinople=`expr $current_year - 1453`
+birth_bach=`expr $current_year - 1685`
 birth_mozart=`expr $current_year - 1756`
 declaration_of_independence=`expr $current_year - 1776`
 french_revolution=`expr $current_year - 1789`
@@ -49,10 +50,14 @@ birth_hp_lovecraft=`expr $current_year - 1890`
 assassination_archduke_ferdinand=`expr $current_year - 1914`
 sinking_of_lusitania=`expr $current_year - 1915`
 russian_communist_revolution=`expr $current_year - 1917`
+end_of_WWI=`expr $current_year - 1918`
 stock_market_crash=`expr $current_year - 1929`
 end_of_WWII=`expr $current_year - 1945`
 hiroshima_nagasaki_bomb=`expr $current_year - 1945`
+manned_moon_mission=`expr $current_year - 1959`
+assassination_jfk=`expr $current_year - 1963`
 assassination_martin_luther_king_jr=`expr $current_year - 1968`
+birth_torvalds=`expr $current_year - 1969`
 soviet_dissolution=`expr $current_year - 1991`
 # 21st century events
 september_eleventh_attacks=`expr $current_year - 2001`
@@ -95,12 +100,14 @@ historical_markers()
 {
 
     echo "$dashband"
-    echo -ne "Years since past historical events:\n" 
+    echo -ne "Years since past historical events:\n"
+    echo -ne "Romans destroy Carthage : ${red}$rome_destroys_carthage years${reset}\n"
     echo -ne "Birth of Muhammad : ${red}$birth_muhammad years${reset}\n"
     echo -ne "Black Plague : ${red}$black_plague years years${reset}\n"
-    echo -ne "intention of printing press : ${red}$invention_printing_press years${reset}\n"
+    echo -ne "invention of printing press : ${red}$invention_printing_press years${reset}\n"
     echo -ne "Fall of Constantinople: ${red}$constantinople years${reset}\n"
-    echo -ne "Birth of Mozart : ${red}$birth_mozart years${reset}\n"
+    echo -ne "Birth of Johann Sebastian Bach : ${red}$birth_bach years${reset}\n"
+    echo -ne "Birth of Wolfgang Amadeus Mozart : ${red}$birth_mozart years${reset}\n"
     echo -ne "Declaration of Independence : ${red}$declaration_of_independence years${reset}\n"
     echo -ne "French Revolution : ${red}$french_revolution years${reset}\n"
 
@@ -116,15 +123,19 @@ historical_markers()
     echo -ne "Assassination of Archduke Ferdinand : ${red}$assassination_archduke_ferdinand years${reset}\n"
     echo -ne "Sinking of the Lusitania : ${red}$sinking_of_lusitania years${reset}\n"
     echo -ne "Russian Communist Revolution : ${red}$russian_communist_revolution years${reset}\n"
+    echo -ne "End of WWI : ${red}$end_of_WWI years${reset}\n"
     echo -ne "Stock Market Crash : ${red}$stock_market_crash years${reset}\n"
     echo -ne "End of WWII : ${red}$end_of_WWII years${reset}\n"
     echo -ne "Nuclear destruction of Nagasaki, Hiroshima : ${red}$hiroshima_nagasaki_bomb years${reset}\n"
+    echo -ne "Apollo 11 crew lands on the moon : ${red}$manned_moon_mission years${reset}\n"
     echo -ne "Assassination of Martin Luther King Jr. : ${red}$assassination_martin_luther_king_jr years${reset}\n"
+    echo -ne "Assassination of JFK : ${red}$assassination_jfk years${reset}\n"
+    echo -ne "Birth of Linux Torvalds : ${red}$birth_torvalds years${reset}\n"
     echo -ne "Fall of Soviet Union: ${red}$soviet_dissolution${reset}\n"
 
     # 21st century
     echo -ne "September 11th Attacks: ${red}$september_eleventh_attacks years${reset}\n"
-    echo -ne "Donald Trump becomes 45th President : ${red}$election_donald_trump years${reset}\n"
+    echo -ne "Donald J. Trump becomes 45th President of US : ${red}$election_donald_trump years${reset}\n"
     #echo -ne "event : ${red}blank years${reset}\n"
     
 }
@@ -173,6 +184,7 @@ case $1 in
 	;;
     
 esac
+
 
 
 
