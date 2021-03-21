@@ -1,22 +1,16 @@
 #! /bin/bash
-# Script for outputing time display loop or list of important historical events.
-
+# Script for outputing time display loop or list of important historical events and their distance from the present year.
 
 # Color escape sequence variables
-
 red="\e[1;31m"
 yellow="\e[1;33m"
 cyan="\e[1;36m"
 purple="\e[1;35m"
-
 reset="\e[0m"
 
-
 # Grahpical variables
-
 dashband="-------------------------------------------------"
 separator="- - - - - - - - - - - - - - - - - - - - - - - - "
-
 
 # Time simplification variables
 current_year=$(date +%Y)
@@ -26,9 +20,7 @@ current_month_text=$(date +%B)
 current_month_number=$(date +%m)
 current_day_of_month=$(date +%d)
 
-
 # Historical events variables
-
 rome_destroys_carthage=`expr $current_year + 146`
 birth_muhammad=`expr $current_year - 570`
 black_plague=`expr $current_year - 1353`
@@ -63,18 +55,12 @@ soviet_dissolution=`expr $current_year - 1991`
 september_eleventh_attacks=`expr $current_year - 2001`
 election_donald_trump=`expr $current_year - 2016`
 
-
-
-
 blank=`expr $current_year - 0000`
 
 
 # Functions definitions
-
-
 time_display_loop()
 {
-
     echo $dashband
     echo "               H  M  S     N  "
 
@@ -83,22 +69,17 @@ time_display_loop()
 	echo -ne " Current time: $(date +%H:%M:%S:%N)\r"
 	sleep .1
     done
-
 }
-
 
 # Data about specific year (if no year supplied then use current year)
 year_data()
 {
     year=$1
-    cal -y $year
-    
+    cal -y $year    
 }
-
 
 historical_markers()
 {
-
     echo "$dashband"
     echo -ne "Years since past historical events:\n"
     echo -ne "Romans destroy Carthage : ${red}$rome_destroys_carthage years${reset}\n"
@@ -136,10 +117,8 @@ historical_markers()
     # 21st century
     echo -ne "September 11th Attacks: ${red}$september_eleventh_attacks years${reset}\n"
     echo -ne "Donald J. Trump becomes 45th President of US : ${red}$election_donald_trump years${reset}\n"
-    #echo -ne "event : ${red}blank years${reset}\n"
-    
+    #echo -ne "event : ${red}blank years${reset}\n"   
 }
-
 
 current_year_info()
 {
