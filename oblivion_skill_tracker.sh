@@ -22,20 +22,8 @@ dashband="-------------------------------------------"
 # function create oblivion profile
 create_profile()
 {
-    # character's major skills - there are seven
-    echo "list major skills one by one (lowercase)"
-    # takes input for major skills
-    for((i=0;i<7;i++))
-       {
-       echo -ne "major skill $(expr $i + 1): "
-       read major_skills[i]
-       }
-    # stores major skill input in .oblivionprofile file
-    for((i=0;i<7;i++))
-       {
-       echo -ne "major_skill_$(expr $i + 1)=" >> "$character_name.oblivionprofile"
-       echo "\"${major_skills[i]}\"" >> "$character_name.oblivionprofile"
-       }
+    # sets character name, sex, race, birthsign, and two favored attributes (+5)
+    immutables
 }
 
 
@@ -53,11 +41,11 @@ immutables()
     echo "sex=\"$sex\"" >> "$character_name.oblivionprofile"
 
     # character race
-    echo "Enter character race (lowercase)"
+    echo -ne "Enter character race (lowercase)\n(Options: altmer (high elf), argonian, bosmer (wood elf), breton, dunmer (dark elf), imperial, khajiit, nord, orsimer (orc), redguard:\nRace: "
     read race
     echo "race=\"$race\"" >> "$character_name.oblivionprofile"
     
-    # character birthsignsign
+    # character birthsign
     echo -ne "Enter character birthsign (lowercase)\n(Options: apprentice, atronach, lady, lord, lover, mage, ritual, serpent, shadow, steed, thief, tower, warrior)\n Birthsign: "
     read birthsign
     echo "birthsign=\"$birthsign\"" >> "$character_name.oblivionprofile"
@@ -65,36 +53,17 @@ immutables()
     # Enter characters two favored attributes (The two attributes you can add +5 to at beginning of game)
     echo -ne "Enter first favored attribute: "
     read fav_attr_1
+    echo "fav_attr_1=\"$fav_attr_1\"" >> "$character_name.oblivionprofile"
     echo -ne "Enter second favored attribute: "
     read fav_attr_2
+    echo "fav_attr_2=\"$fav_attr_2\"" >> "$character_name.oblivionprofile"
     echo "" #newline
     # add these to attribute totals calculated after race and sex calculations
     set_attributes $sex $race $birthsign $fav_attr_1 $fav_attr_2
 }
 
 
-# function sets major skills - is called by set_attributes function (because race and sex plays a role in skill intitial variable declarations)
 
-set_skills()
-{
-    # variables set by function call from set_attributes() function
-
-    
-    # character's major skills - there are seven
-    echo "list major skills one by one (lowercase)"
-    # takes input for major skills
-    for((i=0;i<7;i++))
-       {
-       echo -ne "major skill $(expr $i + 1): "
-       read major_skills[i]
-       }
-    # stores major skill input in .oblivionprofile file
-    for((i=0;i<7;i++))
-       {
-       echo -ne "major_skill_$(expr $i + 1)=" >> "$character_name.oblivionprofile"
-       echo "\"${major_skills[i]}\"" >> "$character_name.oblivionprofile"
-       }
-}
 
 
 # function that will take race, sex, and favored attributes and calculate .oblivionprofile attributes
@@ -107,40 +76,99 @@ set_attributes()
     fav_attr_2=$5
     echo "from inside set_attributes function";echo "$sex $race $birthsign $fav_attr_1 $fav_attr_2" #test statements
 
-
     # declare all attributes variables
     let strength=0; let intelligence=0; let willpower=0; let agility=0; let speed=0; let endurance=0; let personality=0; let luck=50
     # Set attributes based on sex and race
     case $race in
-	"altmer"|"high elf")
-	    echo "you are high elf"
+	"altmer"|"Altmer") # high elf
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=30));intelligence=$((intelligence+=50));willpower=$((willpower+=40));agility=$((agility+=40));speed=$((speed+=30));endurance=$((endurance+=40));personality=$((personality+=40))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=30));intelligence=$((intelligence+=50));willpower=$((willpower+=40));agility=$((agility+=40));speed=$((speed+=40));endurance=$((endurance+=30));personality=$((personality+=40))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
-	"argonian")
-	    echo "you are argonian"
+	"argonian") # argonian
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=40));willpower=$((willpower+=30));agility=$((agility+=50));speed=$((speed+=50));endurance=$((endurance+=30));personality=$((personality+=30))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=50));willpower=$((willpower+=40));agility=$((agility+=40));speed=$((speed+=40));endurance=$((endurance+=30));personality=$((personality+=30))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
-	"bosmer"|"wood elf")
-	    echo "you are a wood elf"
+	"bosmer"|"Bosmer") # wood elf
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=30));intelligence=$((intelligence+=40));willpower=$((willpower+=30));agility=$((agility+=50));speed=$((speed+=50));endurance=$((endurance+=40));personality=$((personality+=30))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=30));intelligence=$((intelligence+=40));willpower=$((willpower+=30));agility=$((agility+=50));speed=$((speed+=50));endurance=$((endurance+=30));personality=$((personality+=40))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
-	"breton")
-	    echo "you are breton"
+	"breton") # breton
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=50));willpower=$((willpower+=50));agility=$((agility+=30));speed=$((speed+=30));endurance=$((endurance+=30));personality=$((personality+=40))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=30));intelligence=$((intelligence+=50));willpower=$((willpower+=50));agility=$((agility+=30));speed=$((speed+=40));endurance=$((endurance+=30));personality=$((personality+=40))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
-	"dunmer"|"dark elf")
-	    echo "you are a dark elf"
+	"dunmer"|"Dunmer") # dark elf
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=40));willpower=$((willpower+=30));agility=$((agility+=40));speed=$((speed+=50));endurance=$((endurance+=40));personality=$((personality+=30))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=40));willpower=$((willpower+=30));agility=$((agility+=40));speed=$((speed+=50));endurance=$((endurance+=30));personality=$((personality+=40))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
-	"imperial")
-	    echo "you are imperial"
+	"imperial") # imperial
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=40));willpower=$((willpower+=30));agility=$((agility+=30));speed=$((speed+=40));endurance=$((endurance+=40));personality=$((personality+=50))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=40));willpower=$((willpower+=40));agility=$((agility+=30));speed=$((speed+=30));endurance=$((endurance+=40));personality=$((personality+=50))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
 	"khajiit")
-	    echo "you are khajiit"
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=40));willpower=$((willpower+=30));agility=$((agility+=50));speed=$((speed+=40));endurance=$((endurance+=30));personality=$((personality+=40))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=30));intelligence=$((intelligence+=40));willpower=$((willpower+=30));agility=$((agility+=50));speed=$((speed+=40));endurance=$((endurance+=40));personality=$((personality+=40))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
 	"nord")
-	    echo "you are a nord"
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=50));intelligence=$((intelligence+=30));willpower=$((willpower+=30));agility=$((agility+=40));speed=$((speed+=40));endurance=$((endurance+=50));personality=$((personality+=30))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=50));intelligence=$((intelligence+=30));willpower=$((willpower+=40));agility=$((agility+=40));speed=$((speed+=40));endurance=$((endurance+=40));personality=$((personality+=30))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
-	"orsimer"|"orc")
-	    echo "you are an orc"
+	"orsimer"|"Orsimer") # orc
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=45));intelligence=$((intelligence+=30));willpower=$((willpower+=50));agility=$((agility+=35));speed=$((speed+=30));endurance=$((endurance+=50));personality=$((personality+=30))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=45));intelligence=$((intelligence+=40));willpower=$((willpower+=45));agility=$((agility+=35));speed=$((speed+=30));endurance=$((endurance+=50));personality=$((personality+=25))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
 	"redguard")
-	    echo "you are redguard"
+	    if [[ $sex == "m" ]]; then
+		strength=$((strength+=50));intelligence=$((intelligence+=30));willpower=$((willpower+=30));agility=$((agility+=40));speed=$((speed+=40));endurance=$((endurance+=50));personality=$((personality+=30))
+	    elif [[ $sex == "f" ]]; then
+		strength=$((strength+=40));intelligence=$((intelligence+=30));willpower=$((willpower+=30));agility=$((agility+=40));speed=$((speed+=40));endurance=$((endurance+=50));personality=$((personality+=40))
+	    else
+		echo "Error: Invalid sex selection"
+	    fi
 	    ;;
 	*)
 	    echo "Error: Invalid race entered:"
@@ -155,7 +183,7 @@ set_attributes()
 	    endurance=$((endurance+=10))
 	    ;;
 	"the steed"|"steed")
-	    speed=$((speed+=10))
+	    speed=$((speed+=20))
 	    ;;
 	"the thief"|"thief")
 	    agility=$((agility+=10))
@@ -178,14 +206,6 @@ set_attributes()
     
 
 
-    
-
-    echo "attributes set to:"
-    echo -ne "strength=$strength\nintelligence=$intelligence\nwillpower=$willpower\nagility=$agility\nspeed=$speed\nendurance=$endurance\npersonality=$personality\nluck=$luck\n"
-
-
-
-
     # add favored attributes to total
 
     #1st - favored attributes cannot equal each other
@@ -193,18 +213,105 @@ set_attributes()
 	echo "Error: favored attributes one and two cannot be the same"
 	exit -1
     else
-	# case statement which will add the favored attributes to totals
-	echo "case statement"
+	
+	# favored attribute 1 case statement
+	case $fav_attr_1 in
+	    "strength"|"Strength")
+		strength=$((strength+=5))
+		;;
+	    "intelligence"|"Intelligence")
+		intelligence=$((intelligence+=5))
+		;;
+	    "willpower"|"Willpower")
+		willpower=$((willpower+=5))
+		;;
+	    "agility"|"Agility")
+		agility=$((agility+=5))
+		;;
+	    "speed"|"Speed")
+		speed=$((speed+=5))
+		;;
+	    "endurance"|"Endurance")
+		endurance=$((endurance+=5))
+		;;
+	    "personality"|"Personality")
+		personality=$((personality+=5))
+		;;
+	    "luck"|"Luck")
+		luck=$((luck+=5))
+		;;
+	    *)
+		echo "Error: invalid data entry: invalid favored attribute 1"
+		exit -1
+		;;
+	esac
+
+	
+	# favored attribute 2 case statement
+	case $fav_attr_2 in
+	    "strength"|"Strength")
+		strength=$((strength+=5))
+		;;
+	    "intelligence"|"Intelligence")
+		intelligence=$((intelligence+=5))
+		;;
+	    "willpower"|"Willpower")
+		willpower=$((willpower+=5))
+		;;
+	    "agility"|"Agility")
+		agility=$((agility+=5))
+		;;
+	    "speed"|"Speed")
+		speed=$((speed+=5))
+		;;
+	    "endurance"|"Endurance")
+		endurance=$((endurance+=5))
+		;;
+	    "personality"|"Personality")
+		personality=$((personality+=5))
+		;;
+	    "luck"|"Luck")
+		luck=$((luck+=5))
+		;;
+	    *)
+		echo "Error: invalid data entry: invalid favored attribute 1"
+		exit -1
+		;;
+	esac
+	
     fi
+    
+
+
+    echo "attributes set to:"
+    echo -ne "strength=$strength\nintelligence=$intelligence\nwillpower=$willpower\nagility=$agility\nspeed=$speed\nendurance=$endurance\npersonality=$personality\nluck=$luck\n"
+
     
 	
 }
 
 
+# function sets major skills - is called by set_attributes function (because race and sex plays a role in skill intitial variable declarations)
 # set skills function will set skills based on sex, race, and major skill selections
 set_skills()
 {
-    #function body
+    # variables set by function call from set_attributes() function
+
+    
+    # character's major skills - there are seven
+    echo "list major skills one by one (lowercase)"
+    # takes input for major skills
+    for((i=0;i<7;i++))
+       {
+       echo -ne "major skill $(expr $i + 1): "
+       read major_skills[i]
+       }
+    # stores major skill input in .oblivionprofile file
+    for((i=0;i<7;i++))
+       {
+       echo -ne "major_skill_$(expr $i + 1)=" >> "$character_name.oblivionprofile"
+       echo "\"${major_skills[i]}\"" >> "$character_name.oblivionprofile"
+       }
 }
 
 
@@ -214,7 +321,7 @@ create_profile
 # load .oblivionprofile file
 load_profile()
 {
-    echo -ne "type character name to load profile: "
+    echo -ne ".oblivionprofile file to load: "
     read profilefile
     source "$profilefile"
     echo "your character is $character_name and is the $race race"
@@ -230,8 +337,6 @@ load_profile()
 }
 
 #load_profile
-
-
 
 
 
