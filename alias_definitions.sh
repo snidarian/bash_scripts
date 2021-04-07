@@ -13,13 +13,18 @@ alias numberedls='j=0; for i in `ls`; do j=$(expr $j + 1); echo "$j. $i"; done' 
 alias dog='cat -n'
 
 
-# Active terminal refresh and list contents in real time "perpetual clear and list"                                                                                                                                                        
+# git definitions
+alias all_in='git add -A; git commit; git push'
+
+
+
+# Active terminal refresh and list contents in real time "perpetual clear and list"                     
 alias pcls='while [ 1 ]; do cls; sleep 1; done'
 alias pclls='while [ 1 ]; do clls; sleep 1; done'
 alias pclas='while [ 1 ]; do clas; sleep 1; done'
 alias pcllas='while [ 1 ]; do cllas; sleep 1; done'
 
-# colorize diff output - requires colordiff program                                                                                                                                                                
+# colorize diff output - requires colordiff program                                                     
 alias diff='colordiff'
 
 
