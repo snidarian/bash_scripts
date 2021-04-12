@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-# sophisticated bash tool utilizing openssl utility/libraries for custom encryption schemes
+# bash tool utilizing openssl utility/libraries for custom encryption schemes
 
 
 # takes two args:
