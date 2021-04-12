@@ -25,11 +25,9 @@ encrypt()
     base64=$(openssl enc -base64 -in $filename)
     # get random id to assign as new scrambled name
     file_id=`echo "$filename" | openssl enc -base64`
-    temp_file="temp_file.txt"
     # define filename variable that can be accessed when unecrypted and create new file
     openssl enc -aes-256-cbc -in "$filename" -out "$file_id"
     # rm regular and temp file if previous exit code indicates success (0)
-    # important otherwise the file gets deleted if you fail setting the password
     if [[ $? == 0 ]]; then
 	rm "$filename"
     else
@@ -40,30 +38,21 @@ encrypt()
 
 decrypt()
 {
-    filename="$1"
-    encrypted_name=$filename
-    unencrypted_name=`echo "$encrypted_name" | openssl enc -base64 -d`
-    file_to_delete_afterwards="$filename"
-    openssl enc -aes-256-cbc -d -in "$file" -out "temp_file.txt"
-    source "temp_file.txt"
-    # convert base64 content from temp_file
-    unencrypted_message=`echo "$content" | openssl enc -base64 -d`
-    echo "$unencrypted_message" > "$unencrypted_name"
-    rm "temp_file.txt"
-    rm "$file_to_delete_afterwards"
+    file=$1
+    new_filename=`echo "$file" | openssl enc -base64 -d`
+    openssl enc -aes-256-cbc -d -in "$file" -out "$new_filename"
+    if [[ $? == 0 ]]; then
+	rm "$file"
+    else
+	echo "UserError: Password incorrect"
+	rm "$new_filename"
+    fi
 }
 
 
 cat_encrypted()
 {
-    filename="$1"
-    openssl enc -aes-256-cbc -d -in "$filename" -out "temp_file.txt"
-    # convert base64 content from temp_file
-    unencrypted_message=`openssl enc -base64 -d -in "$filename"`
-    echo "mark123"
-    echo "$unencrypted_message"
-    rm "temp_file.txt"
-    
+    echo "cat function not yet finished"
 }
 
 
