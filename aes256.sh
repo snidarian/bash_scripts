@@ -52,7 +52,12 @@ decrypt()
 
 cat_encrypted()
 {
-    echo "cat function not yet finished"
+    file_to_cat="$1"
+    echo "filetocat = $file_to_cat"
+    openssl enc -aes-256-cbc -d -in "$file_to_cat" -out temp_file.txt
+    cat temp_file.txt
+    sleep 1
+    rm temp_file.txt
 }
 
 
