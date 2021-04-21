@@ -41,7 +41,7 @@ selected_file="${aa[$select_index]}"
 # done
 
 
-
+# Run gsettings command to set desktop wallpaper to new value
 gsettings set org.gnome.desktop.background picture-uri "file://$target_filepath$selected_file"
 
 
