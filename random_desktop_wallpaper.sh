@@ -2,7 +2,7 @@
 # For a system with gdm3
 # Picks a wallpaper at random from target folder argument and sets it as wallpaper
 # set this program to run on the crontab so as to automate frequency of wallpaper changes
-
+# Cron needs access to desktop environment variables to function properly when executing the 'gsettings' command
 
 
 # takes one argument - absolute filepath to folder to select random file from
