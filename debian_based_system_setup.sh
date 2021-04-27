@@ -70,7 +70,7 @@ git clone git@github.com:snidarian/linux_networking.git
 # make home bin directory
 mkdir ~/bin
 
-echo -e "\n\n\n----------------------------------------------" >> ~/.bashrc
+echo -e "\n\n\n#----------------------------------------------" >> ~/.bashrc
 echo -e "# USER ADDED Add home bin directory to PATH" >> ~/.bashrc
 echo "PATH=\"$PATH:~/bin\"" >> ~/.bashrc
 
