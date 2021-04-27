@@ -39,7 +39,7 @@ sudo apt-get install macchanger
 
 # configure git credentials as snidarian
 git config --global user.name "snidarian"
-git config --global user.email "cephalopod31956"
+git config --global user.email "cephalopod31956@gmail.com"
 
 # make git_workfolders directory in home/user/ directory
 mkdir ~/git_workfolders
