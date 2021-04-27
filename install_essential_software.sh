@@ -31,6 +31,9 @@ sudo apt-get install macchanger
 sudo apt-get install tcpdump
 # install vlc multimedia player
 sudo apt-get install vlc
+# install fbreader
+sudo apt-get install fbreader
+
 
 # more software items to come when I remember the rest
 
