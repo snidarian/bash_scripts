@@ -33,6 +33,9 @@ sudo apt-get install default-jdk
 sudo apt-get install openssh-server
 # install macchanger program
 sudo apt-get install macchanger
+# tcpdump
+sudo apt-get install tcpdump
+
 
 # -------------------------------------------------------------------------
 # GIT SECTION
