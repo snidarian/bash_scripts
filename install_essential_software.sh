@@ -29,7 +29,8 @@ sudo apt-get install openssh-server
 sudo apt-get install macchanger
 # install tcpdump
 sudo apt-get install tcpdump
-
+# install vlc multimedia player
+sudo apt-get install vlc
 
 # more software items to come when I remember the rest
 
