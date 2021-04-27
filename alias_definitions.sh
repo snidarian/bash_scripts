@@ -30,7 +30,7 @@ alias cllas='clear && ls -laG'
 
 
 # git definitions
-alias all_in='git add -A; git commit; git push'
+all_in() { git add -A; git commit -m "$1"; git push; }
 
 
 
