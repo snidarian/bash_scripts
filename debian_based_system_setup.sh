@@ -74,9 +74,15 @@ echo -e "\n\n\n----------------------------------------------" >> ~/.bashrc
 echo -e "# USER ADDED Add home bin directory to PATH" >> ~/.bashrc
 echo "PATH=\"$PATH:~/bin\"" >> ~/.bashrc
 
+echo -e "# Add git bash_scripts repository folder to PATH" >> ~/.bashrc
+echo "PATH=\"$PATH:~/git_workfolders/bash_scripts" >> ~/.bashrc
+
+
 
 # add essential aliases
 echo -e "\n\n# source aliases from bash_scripts to local .bashrc file" >> ~/.bashrc
 
 echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.bashrc
+
+
 
