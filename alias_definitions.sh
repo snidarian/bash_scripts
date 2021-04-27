@@ -29,7 +29,7 @@ alias clas='clear && ls -aG'
 alias cllas='clear && ls -laG'
 
 
-# git definitions
+# git function definitions
 all_in() { git add -A; git commit -m "$1"; git push; }
 
 # pulls all changes from remote repositories and merges them
