@@ -35,6 +35,8 @@ sudo apt-get install openssh-server
 sudo apt-get install macchanger
 # tcpdump
 sudo apt-get install tcpdump
+# install nmap
+sudo apt-get install nmap
 # vlc multimedia player
 sudo apt-get install vlc
 
