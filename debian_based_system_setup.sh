@@ -30,6 +30,8 @@ sudo apt-get install clisp
 # JDK
 sudo apt-get install default-jdk
 # openssh server
+
+# network tools/commands
 sudo apt-get install openssh-server
 # install macchanger program
 sudo apt-get install macchanger
@@ -37,8 +39,14 @@ sudo apt-get install macchanger
 sudo apt-get install tcpdump
 # install nmap
 sudo apt-get install nmap
+# install whois command
+sudo apt-get install whois
+
+# multimedia and misc
 # vlc multimedia player
 sudo apt-get install vlc
+# install fbreader
+sudo apt-get install fbreader
 
 
 # -------------------------------------------------------------------------
