@@ -33,7 +33,7 @@ alias cllas='clear && ls -laG'
 all_in() { git add -A; git commit -m "$1"; git push; }
 
 # pulls all changes from remote repositories and merges them
-pull_all() { for foldervar in ~/git_workfolders/*; do cd "$foldervar"; git pull; done; cd ~ }
+pull_all() { for foldervar in ~/git_workfolders/*; do cd "$foldervar"; git pull; done; cd; }
 
 
 # Active terminal refresh and list contents in real time "perpertual clear and list"
