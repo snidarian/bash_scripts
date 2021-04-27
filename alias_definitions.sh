@@ -2,20 +2,20 @@
 
 # CUSTOM USER ALIAS DEFINITIONS                                                               
 
+
+# access contacts database
+alias contacts='manage_contacts.py ~/.contacts.db'
+
+
 # alarm variable/command (use with eval command)
 alarm_10_reps='i=0; while [[ $i -lt 10 ]]; do echo -ne "\a"; sleep .3; echo -ne "\a"; i=$((i+=1)); done'
 
 
 # Timer Alias -
-alias timer15m='sleep 900; eval "$alarm_10_reps"'
-alias timer10m='sleep 600; eval "$alarm_10_reps"'
-alias timer5m='sleep 300; eval "$alarm_10_reps"'
-alias timer2m='sleep 120; eval "$alarm_10_reps"'
-alias timer1m='sleep 60; eval "$alarm_10_reps"'
+alias timer='f(){ sleep "$1"m; eval "$alarm_10_reps"; unset -f f; }; f'
 alias timer120='sleep 120; eval "$alarm_10_reps"'
 alias timer60='sleep 60; eval "$alarm_10_reps"'
 alias timer30='sleep 30; eval "$alarm_10_reps"'
-alias timertest='sleep 3; eval "$alarm_10_reps"'
 
 # Dog and Hound
 alias dog='cat -n' #provides numbered output for cat command using -n flag
@@ -32,6 +32,8 @@ alias cllas='clear && ls -laG'
 # git definitions
 all_in() { git add -A; git commit -m "$1"; git push; }
 
+# pulls all changes from remote repositories and merges them
+pull_all() { for foldervar in ~/git_workfolders/*; do cd "$foldervar"; git pull; done }
 
 
 # Active terminal refresh and list contents in real time "perpertual clear and list"
