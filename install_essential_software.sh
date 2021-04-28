@@ -34,6 +34,8 @@ sudo apt-get install macchanger
 sudo apt-get install tcpdump
 # install nmap
 sudo apt-get install nmap
+# install arp-scan
+sudo apt-get install arp-scan
 # install whois command
 sudo apt-get install whois
 
