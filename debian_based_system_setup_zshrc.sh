@@ -90,7 +90,7 @@ echo "# USER ADDED Add home bin directory to PATH" >> ~/.zshrc
 echo "PATH=\"$PATH:~/bin\"" >> ~/.zshrc
 
 echo "# Add git bash_scripts repository folder to PATH" >> ~/.zshrc
-echo "PATH=\"$PATH:~/git_workfolders/bash_scripts\"" >> ~/.zshrc
+echo "PATH=\"$PATH:$HOME/git_workfolders/bash_scripts\"" >> ~/.zshrc
 
 echo ""
 echo ""

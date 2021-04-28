@@ -87,7 +87,7 @@ echo -e "# USER ADDED Add home bin directory to PATH" >> ~/.bashrc
 echo "PATH=\"$PATH:~/bin\"" >> ~/.bashrc
 
 echo -e "# Add git bash_scripts repository folder to PATH" >> ~/.bashrc
-echo "PATH=\"$PATH:~/git_workfolders/bash_scripts\"" >> ~/.bashrc
+echo "PATH=\"$PATH:$HOME/git_workfolders/bash_scripts\"" >> ~/.bashrc
 
 
 
