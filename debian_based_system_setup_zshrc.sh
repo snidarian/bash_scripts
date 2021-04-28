@@ -80,17 +80,21 @@ git clone git@github.com:snidarian/linux_networking.git
 # make home bin directory
 mkdir ~/bin
 
-echo -e "\n\n\n#----------------------------------------------" >> ~/.zshrc
-echo -e "# USER ADDED Add home bin directory to PATH" >> ~/.zshrc
+echo ""
+echo ""
+
+echo "#----------------------------------------------" >> ~/.zshrc
+echo "# USER ADDED Add home bin directory to PATH" >> ~/.zshrc
 echo "PATH=\"$PATH:~/bin\"" >> ~/.zshrc
 
-echo -e "# Add git bash_scripts repository folder to PATH" >> ~/.zshrc
+echo "# Add git bash_scripts repository folder to PATH" >> ~/.zshrc
 echo "PATH=\"$PATH:~/git_workfolders/bash_scripts\"" >> ~/.zshrc
 
-
+echo ""
+echo ""
 
 # add essential aliases
-echo -e "\n\n# source aliases from bash_scripts to local .bashrc file" >> ~/.zshrc
+echo "\n\n# source aliases from bash_scripts to local .bashrc file" >> ~/.zshrc
 
 echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.zshrc
 
