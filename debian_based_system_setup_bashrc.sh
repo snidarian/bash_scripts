@@ -98,3 +98,4 @@ echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.bashrc
 
 
 
+
