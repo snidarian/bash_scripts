@@ -35,6 +35,17 @@ all_in() { git add -A; git commit -m "$1"; git push; }
 # pulls all changes from remote repositories and merges them
 pull_all() { pwd="$(pwd)"; for foldervar in ~/git_workfolders/*; do cd "$foldervar"; git pull; done; cd "$pwd"; }
 
+push_all() { comment=$1; pwd="$(pwd)";
+	     for foldervar in ~/git_workfolders/*;
+	     do
+		 cd "$foldervar";
+		 git add -A;
+		 git commit -m "$comment";
+		 git push;
+	     done;
+	     # change back to original dir
+	     cd "$pwd";
+	   }
 
 # Active terminal refresh and list contents in real time "perpertual clear and list"
 alias pcls='while [ 1 ]; do cls; sleep 1; done'
