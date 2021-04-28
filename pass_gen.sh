@@ -1,6 +1,5 @@
 #! /usr/bin/bash
 
-
 # generates $1 number of $2 length passwords with included numbering
 # $3 is the name of the file to be generated but the file name defaults to "pass.txt"
 # if no third argument is supplied
