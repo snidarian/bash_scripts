@@ -29,6 +29,13 @@ alias clas='clear && ls -aG'
 alias cllas='clear && ls -laG'
 
 
+# Active terminal refresh and list contents in real time "perpertual clear and list"
+alias pcls='while [ 1 ]; do cls; sleep 1; done'
+alias pclls='while [ 1 ]; do clls; sleep 1; done'
+alias pclas='while [ 1 ]; do clas; sleep 1; done'
+alias pcllas='while [ 1 ]; do cllas; sleep 1; done'
+
+
 # git function definitions
 all_in() { git add -A; git commit -m "$1"; git push; }
 
@@ -47,11 +54,6 @@ push_all() { comment=$1; pwd="$(pwd)";
 	     cd "$pwd";
 	   }
 
-# Active terminal refresh and list contents in real time "perpertual clear and list"
-alias pcls='while [ 1 ]; do cls; sleep 1; done'
-alias pclls='while [ 1 ]; do clls; sleep 1; done'
-alias pclas='while [ 1 ]; do clas; sleep 1; done'
-alias pcllas='while [ 1 ]; do cllas; sleep 1; done'
 
 
 # colorize diff output - requires colordiff program
@@ -72,6 +74,13 @@ alias enw='emacs -nw'
 alias anthomacs='emacs -nw -bg color-20 -fg yellow'
 
 
+# ssh server commands
+# start
+alias start_ssh='sudo systemctl start ssh'
+# inquire status
+alias status_ssh='sudo systemctl status ssh'
+# stop
+alias stop_ssh='sudo systemctl stop'
 
 
 
