@@ -24,6 +24,7 @@ git clone git@github.com:snidarian/sandbox.git
 git clone git@github.com:snidarian/Language_Fundamentals.git
 # syntax and refreshers for linux networking commands and theory
 git clone git@github.com:snidarian/linux_networking.git
-
+# add raspi programs repo
+git clone git@github.com:snidarian/raspi_programs.git
 
 
