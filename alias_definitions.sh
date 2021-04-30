@@ -78,7 +78,7 @@ push_all() { comment=$1; pwd="$(pwd)";
 status_all() { pwd="$(pwd)";
 	       for foldervar in ~/git_workfolders/*;
 	       do
-		   echo -e "${green}$foldervar${reset}"
+		   echo -e "${blue}$foldervar${reset}"
 		   cd "$foldervar";
 		   git status;
 	       done;
