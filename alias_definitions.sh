@@ -1,4 +1,4 @@
-# -------------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 
 # color ansi escape variables
 black="\e[1;3m"
@@ -12,8 +12,8 @@ white="\e[1;37m"
 reset="\e[0m"
 
 
+# ----------------------------------------------------------------------
 # CUSTOM USER ALIAS DEFINITIONS                                                               
-
 
 # access contacts database
 alias contacts='manage_contacts.py ~/.contacts.db'
@@ -48,7 +48,7 @@ alias pclas='while [ 1 ]; do clas; sleep 1; done'
 alias pcllas='while [ 1 ]; do cllas; sleep 1; done'
 
 
-# git function definitions
+# GIT FUNCTION DEFINITIONS
 all_in() { git add -A; git commit -m "$1"; git push; }
 
 # pulls all changes from remote repositories and merges them
@@ -61,6 +61,7 @@ pull_all() { pwd="$(pwd)";
 	     cd "$pwd";
 	   }
 
+# pushes all repository changes (all repos in ~/git_workfolders)
 push_all() { comment=$1; pwd="$(pwd)";
 	     for foldervar in ~/git_workfolders/*;
 	     do
@@ -74,7 +75,6 @@ push_all() { comment=$1; pwd="$(pwd)";
 	   }
 
 # Reports 'git status' on all repositories in ~/git/workfolders
-
 status_all() { pwd="$(pwd)";
 	       for foldervar in ~/git_workfolders/*;
 	       do
@@ -85,6 +85,18 @@ status_all() { pwd="$(pwd)";
 	       # change back to original directory
 	       cd "$pwd";
 	     }
+
+# pulls bash_scripts repo and sources aliases and functions in alias_definitions.sh file
+# set this function at the end of a .bashrc
+pull_and_source_definitions()
+{
+    # pull bash_scripts repo                                                                                                                              
+    cd ~/git_workfolders/bash_scripts; git pull; cd;
+    # source aliases from bash_scripts to local .bashrc or .zshrc file
+    source ~/git_workfolders/bash_scripts/alias_definitions.sh
+    # clear
+}
+
 
 
 # colorize diff output - requires colordiff program
@@ -112,6 +124,17 @@ alias start_ssh='sudo systemctl start ssh'
 alias status_ssh='sudo systemctl status ssh'
 # stop
 alias stop_ssh='sudo systemctl stop'
+
+
+# apache server commands
+# apache2ctl start
+# apache2ctl stop
+# apache2ctl restart
+# systemctl status apache2
+
+
+
+
 
 
 
