@@ -88,7 +88,7 @@ status_all() { pwd="$(pwd)";
 
 # pulls bash_scripts repo and sources aliases and functions in alias_definitions.sh file
 # set this function at the end of a .bashrc
-pull_and_source_definitions()
+pull_alias_definitions()
 {
     # pull bash_scripts repo                                                                                                                              
     cd ~/git_workfolders/bash_scripts; git pull; cd;
