@@ -40,7 +40,14 @@ alias pcllas='while [ 1 ]; do cllas; sleep 1; done'
 all_in() { git add -A; git commit -m "$1"; git push; }
 
 # pulls all changes from remote repositories and merges them
-pull_all() { pwd="$(pwd)"; for foldervar in ~/git_workfolders/*; do cd "$foldervar"; git pull; done; cd "$pwd"; }
+pull_all() { pwd="$(pwd)";
+	     for foldervar in ~/git_workfolders/*;
+	     do
+		 cd "$foldervar";
+		 git pull;
+	     done;
+	     cd "$pwd";
+	   }
 
 push_all() { comment=$1; pwd="$(pwd)";
 	     for foldervar in ~/git_workfolders/*;
@@ -54,6 +61,17 @@ push_all() { comment=$1; pwd="$(pwd)";
 	     cd "$pwd";
 	   }
 
+# Reports 'git status' on all repositories in ~/git/workfolders
+
+status_all() { pwd="$(pwd)";
+	       for foldervar in ~/git_workfolders/*;
+	       do
+		   cd "$foldervar";
+		   git status;
+	       done;
+	       # change back to original directory
+	       cd "$pwd";
+	     }
 
 
 # colorize diff output - requires colordiff program
