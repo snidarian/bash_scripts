@@ -25,10 +25,10 @@
 
 
 while [ 1 ]; do
-    echo "get battery" | nc -q 0 127.0.0.1 8423
-    echo "get battery_charging" | nc -q 0 127.0.0.1 8423
-    echo "get model" | nc -q 0 127.0.0.1 8423
-    echo "get rtc_time" | nc -q 0 127.0.0.1 8423
+    sudo echo "get battery" | nc -q 0 127.0.0.1 8423
+    sudo echo "get battery_charging" | nc -q 0 127.0.0.1 8423
+    sudo echo "get model" | nc -q 0 127.0.0.1 8423
+    sudo echo "get rtc_time" | nc -q 0 127.0.0.1 8423
     #echo "get battery_i" | nc -q 0 127.0.0.1 8423 # battery amperage
     #echo "get battery_v" | nc -q 0 127.0.0.1 8423 # battery voltage
     sleep 2
