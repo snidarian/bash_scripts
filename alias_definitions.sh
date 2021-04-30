@@ -1,5 +1,17 @@
 # -------------------------------------------------------------------------------------------------------------------------
 
+# color ansi escape variables
+black="\e[1;3m"
+red="\e[1;31m"
+green="\e[1;32m"
+yellow="\e[1;33m"
+blue="\e[1;34m"
+purple="\e[1;35m"
+cyan="\e[1;36m"
+white="\e[1;37m"
+reset="\e[0m"
+
+
 # CUSTOM USER ALIAS DEFINITIONS                                                               
 
 
@@ -66,6 +78,7 @@ push_all() { comment=$1; pwd="$(pwd)";
 status_all() { pwd="$(pwd)";
 	       for foldervar in ~/git_workfolders/*;
 	       do
+		   echo -e "${green}$foldervar${reset}"
 		   cd "$foldervar";
 		   git status;
 	       done;
