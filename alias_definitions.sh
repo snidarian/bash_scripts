@@ -126,6 +126,17 @@ alias status_ssh='sudo systemctl status ssh'
 alias stop_ssh='sudo systemctl stop'
 
 
+# raspi definitions
+
+# queries battery life percentage from pisugar-server daemon
+alias battery='sudo echo "get battery" | nc -q 0 127.0.0.1 8423'
+
+
+
+
+# server/daemon definitions
+
+
 # apache server commands
 # apache2ctl start
 # apache2ctl stop
