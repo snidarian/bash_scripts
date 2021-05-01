@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+# More about controlling the system can be learned from:
+# https://github.com/PiSugar/PiSugar/wiki/PiSugar-Power-Manager-(Software)
+
+
 # script that creates a readout of all battery information (runs in an infinite loop)
 
 # commands for interacting with the pisugar server
