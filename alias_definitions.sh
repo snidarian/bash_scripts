@@ -88,7 +88,7 @@ status_all() { pwd="$(pwd)";
 
 # pulls bash_scripts repo and sources aliases and functions in alias_definitions.sh file
 # set this function at the end of a .bashrc
-pull_alias_definitions()
+pull_and_source()
 {
     # pull bash_scripts repo                                                                                                                              
     cd ~/git_workfolders/bash_scripts; git pull; cd;
@@ -96,7 +96,6 @@ pull_alias_definitions()
     source ~/git_workfolders/bash_scripts/alias_definitions.sh
     # clear
 }
-
 
 
 # colorize diff output - requires colordiff program
