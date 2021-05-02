@@ -116,6 +116,11 @@ alias enw='emacs -nw'
 alias anthomacs='emacs -nw -bg color-20 -fg yellow'
 
 
+# rm based definitions
+alias remove_tests='rm *.test'
+
+
+
 # ssh server commands
 # start
 alias start_ssh='sudo systemctl start ssh'
@@ -125,7 +130,7 @@ alias status_ssh='sudo systemctl status ssh'
 alias stop_ssh='sudo systemctl stop'
 
 
-# raspi definitions
+# RASPI DEFINITIONS
 
 # queries battery life percentage from pisugar-server daemon
 alias battery='sudo echo "get battery" | nc -q 0 127.0.0.1 8423'
