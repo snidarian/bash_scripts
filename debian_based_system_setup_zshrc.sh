@@ -29,7 +29,8 @@ sudo apt-get install tclsh
 sudo apt-get install clisp
 # JDK
 sudo apt-get install default-jdk
-# openssh server
+# install dialog command if not already installed
+sudo apt-get install dialog
 
 # network tools/commands
 sudo apt-get install openssh-server
