@@ -51,6 +51,8 @@ sudo apt-get install whois
 sudo apt-get install vlc
 # install fbreader
 sudo apt-get install fbreader
+# dict command for command line english dictionary definitions
+sudo apt-get install dict
 
 
 # -------------------------------------------------------------------------
