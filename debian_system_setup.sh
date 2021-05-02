@@ -120,7 +120,7 @@ elif [[ $rc_file == "zsh" ]]; then
     echo ""
     echo ""
     # add essential aliases
-    echo "\n\n# source aliases from bash_scripts to local .bashrc file" >> ~/.zshrc
+    echo "# source aliases from bash_scripts to local .bashrc file" >> ~/.zshrc
     echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.zshrc
 fi
 
