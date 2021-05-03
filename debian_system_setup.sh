@@ -23,6 +23,8 @@ sudo apt update && sudo apt upgrade
 # ----------------------------------------------------------------
 # software list
 
+# git
+sudo apt-get install git
 # emacs
 sudo apt-get install emacs
 # ccrypt
