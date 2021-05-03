@@ -1,19 +1,24 @@
 #!/usr/bin/bash
 
 # This script quickly sets up a debian based system for my personal use
+# script will prompt user for selection of bash (.bashrc) or zsh (.zshrc)
 
 # MAKE SURE PRIOR TO RUNNING THIS SCRIPT TO DO THE FOLLOWING:
-# run ssh-keygen to generate rsa public key
-# add said key to list of ssh keys on github.com
+# 1. run ssh-keygen to generate rsa public key
+# 2. add said key to list of public ssh keys on github.com
 
+# DEFINITIONS
 
-# begin executions
+foo()
+{
+    echo "pass"
+}
+
+# EXECUTIONS
 echo "Setting up system essentials for $(id -un)@$(hostname)"
-
 
 # make sure system is up-to-date
 sudo apt update && sudo apt upgrade
-
 
 # ----------------------------------------------------------------
 # software list
@@ -30,10 +35,13 @@ sudo apt-get install tclsh
 sudo apt-get install clisp
 # JDK
 sudo apt-get install default-jdk
-# install dialog command if not already installed
+# install dialog command for Bash GUIs
 sudo apt-get install dialog
 
-# network tools/commands
+# NETWORK TOOLS/COMMANDS
+# install net-tools (for ifconfig)
+sudo apt-get install net-tools
+# Install openssh-server
 sudo apt-get install openssh-server
 # install macchanger program
 sudo apt-get install macchanger
@@ -45,6 +53,11 @@ sudo apt-get install nmap
 sudo apt-get install arp-scan
 # install whois command
 sudo apt-get install whois
+# install wireshark
+sudo apt-get install wireshark
+# install netdiscover (active/passive) network scanning
+sudo apt-get install netdiscover
+
 
 # multimedia and misc
 # vlc multimedia player
