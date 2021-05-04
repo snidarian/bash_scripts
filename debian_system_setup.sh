@@ -59,6 +59,8 @@ sudo apt-get install whois
 sudo apt-get install wireshark
 # install netdiscover (active/passive) network scanning
 sudo apt-get install netdiscover
+# install ipcalc
+sudo apt-get install ipcalc
 
 
 # multimedia and misc
