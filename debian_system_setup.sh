@@ -70,6 +70,20 @@ sudo apt-get install fbreader
 sudo apt-get install dict
 
 
+# ---------------------------------------------------------------
+# SETUP PROTONVPN
+# install software dependencies for protonvpn community linux app
+
+echo "INSTALLING PROTONVPN DEPENDENCIES"
+sudo apt install -y openvpn dialog python3-pip python3-setuptools
+
+sudo pip3 install protonvpn-cli
+
+echo "Beginning protonvpn init process"
+echo "log into protonvpn.com and access account credentials to continue"
+sudo protonvpn init
+
+
 # -------------------------------------------------------------------------
 # GIT SECTION
 
