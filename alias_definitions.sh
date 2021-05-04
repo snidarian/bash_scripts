@@ -35,7 +35,7 @@ alias hound='grep -ni' # grep with numbered line number output for searching sou
 
 
 # Terminal ease-of-use aliases
-alias cls='clear && ls' # Great command. Clears terminal and lists files in current dir
+alias cls='clear && ls -F' # Great command. Clears terminal and lists files in current dir
 alias clls='clear && ls -lGF'
 alias clas='clear && ls -aGF'
 alias cllas='clear && ls -laGF'
