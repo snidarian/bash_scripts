@@ -36,9 +36,9 @@ alias hound='grep -ni' # grep with numbered line number output for searching sou
 
 # Terminal ease-of-use aliases
 alias cls='clear && ls' # Great command. Clears terminal and lists files in current dir
-alias clls='clear && ls -lG'
-alias clas='clear && ls -aG'
-alias cllas='clear && ls -laG'
+alias clls='clear && ls -lGF'
+alias clas='clear && ls -aGF'
+alias cllas='clear && ls -laGF'
 
 
 # Active terminal refresh and list contents in real time "perpertual clear and list"
