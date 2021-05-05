@@ -37,6 +37,8 @@ sudo apt-get install clisp
 sudo apt-get install default-jdk
 # install dialog command for Bash GUIs
 sudo apt-get install dialog
+# install openssh-server
+sudo apt-get install openssh-server
 
 # NETWORK TOOLS/COMMANDS
 # net-tools (for ifconfig)
@@ -72,7 +74,8 @@ sudo apt-get install vlc
 sudo apt-get install fbreader
 # dict command for command line english dictionary definitions
 sudo apt-get install dict
-
+# install rsync for maintaining data archives efficiently
+sudo apt-get install rsync
 
 # ---------------------------------------------------------------
 # SETUP PROTONVPN
