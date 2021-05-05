@@ -29,8 +29,6 @@ sudo apt-get install git
 sudo apt-get install emacs
 # ccrypt
 sudo apt-get install ccrypt
-# net-tools (for ifconfig)
-sudo apt-get install net-tools
 # tclsh
 sudo apt-get install tclsh
 # Common LISP
@@ -41,6 +39,10 @@ sudo apt-get install default-jdk
 sudo apt-get install dialog
 
 # NETWORK TOOLS/COMMANDS
+# net-tools (for ifconfig)
+sudo apt-get install net-tools
+# install reimplementation of traditional netcat
+sudo apt-get install ncat
 # install net-tools (for ifconfig)
 sudo apt-get install net-tools
 # Install openssh-server
