@@ -41,7 +41,7 @@ sudo apt-get install dialog
 # NETWORK TOOLS/COMMANDS
 # net-tools (for ifconfig)
 sudo apt-get install net-tools
-# install reimplementation of traditional netcat
+# install reimplementation of traditional netcat (contains -e and -c flags)
 sudo apt-get install ncat
 # install net-tools (for ifconfig)
 sudo apt-get install net-tools
