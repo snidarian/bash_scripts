@@ -26,6 +26,8 @@ sudo apt-get install tclsh
 sudo apt-get install clisp
 # JDK 
 sudo apt-get install default-jdk
+# install npm (node package manager)
+sudo apt-get install npm
 # install dialog command for Bash GUIs
 sudo apt-get install dialog
 # install openssh-server                                                                                
