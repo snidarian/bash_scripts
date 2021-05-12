@@ -9,6 +9,14 @@
 
 # DEFINITIONS
 
+# Ansi color definitions
+red="\e[1;31m"
+blue="\e[1;34m"
+green="\e[1;32m"
+white="\e[1;37m"
+reset="\e[0m"
+
+# FUNCTION DEFINITIONS
 foo()
 {
     echo "pass"
@@ -83,7 +91,7 @@ sudo apt-get install rsync
 # SETUP PROTONVPN
 # install software dependencies for protonvpn community linux app
 
-echo "INSTALLING PROTONVPN DEPENDENCIES"
+echo -e "${red}INSTALLING PROTONVPN DEPENDENCIES${reset}"
 sudo apt install -y openvpn dialog python3-pip python3-setuptools
 
 sudo pip3 install protonvpn-cli
@@ -95,6 +103,8 @@ sudo protonvpn init
 
 # -------------------------------------------------------------------------
 # GIT SECTION
+
+echo -e "${red}CONFIGURING GIT${reset}"
 
 # configure git credentials as snidarian
 git config --global user.name "snidarian"
@@ -165,9 +175,28 @@ elif [[ $rc_file == "zsh" ]]; then
 fi
 
 
+# List all Firefox browser plugins to install from the command line
 
 
+# Associative array for listing all browser add-ons/plugins:
+declare -A aa
+aa[0]="Ublock Origin"
+aa[1]="Night mode pro"
+aa[2]="Privacy Possum"
+aa[3]="Privacy Badger"
+aa[4]="Ghostery"
+aa[5]="Midnight Lizard"
+aa[6]="Vimium C"
+aa[7]="React dev tools"
 
+
+echo "List of Firefox Add-ons to install"
+
+for item in "${aa[@]}"; do
+    echo -ne "${gree}$item${reset}, "
+done
+
+echo ""
 
 
 
