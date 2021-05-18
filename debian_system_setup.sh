@@ -101,6 +101,18 @@ echo "log into protonvpn.com and access account credentials to continue"
 sudo protonvpn init
 
 
+# ----------------------------------------------------------------
+# Setup Python3 & Python3 dependencies
+
+# download pip3
+sudo apt-get install pip3
+# pipenv package for creating project directories with specific python3 version and dependencies
+pip3 install pipenv
+# Common python modules
+pip3 install sqlite3 fastapi texttable colorama sqlalchemy
+
+
+
 # -------------------------------------------------------------------------
 # GIT SECTION
 
@@ -129,6 +141,9 @@ git clone git@github.com:snidarian/linux_networking.git
 # add raspi programs repo
 git clone git@github.com:snidarian/raspi_programs.git
 
+
+# change back to original home directory directory
+cd
 
 
 rc_file=$(dialog --stdout --menu ".bashrc or .zshrc?" 10 30 2 bash .bashrc zsh .zshrc)
