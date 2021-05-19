@@ -140,6 +140,9 @@ git clone git@github.com:snidarian/Language_Fundamentals.git
 git clone git@github.com:snidarian/linux_networking.git
 # add raspi programs repo
 git clone git@github.com:snidarian/raspi_programs.git
+# vs code workfolder repository
+git clone git@github.com:snidarian/vs_code.git
+
 
 
 # change back to original home directory directory
