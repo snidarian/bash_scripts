@@ -8,9 +8,6 @@ echo "Setting up system essentials for $(id -un)@$(hostname)"
 sudo apt update && sudo apt upgrade
 
 
-# ----------------------------------------------------------------
-# software list
-
 # ----------------------------------------------------------------                                       
 # software list
 
@@ -33,7 +30,7 @@ sudo apt-get install dialog
 # install openssh-server                                                                                
 sudo apt-get install openssh-server
 
-
+# ----------------------------------------------------------------
 # NETWORK TOOLS/COMMANDS
 # net-tools (for ifconfig)
 sudo apt-get install net-tools
@@ -61,6 +58,7 @@ sudo apt-get install netdiscover
 sudo apt-get install ipcalc
 
 
+# ----------------------------------------------------------------
 # MULTIMEDIA AND MISC
 # vlc multimedia player
 sudo apt-get install vlc
@@ -70,4 +68,39 @@ sudo apt-get install fbreader
 sudo apt-get install dict
 # install rsync for maintaining data archives efficiently
 sudo apt-get install rsync
+
+# ----------------------------------------------------------------
+# Setup python and install various python3 modules using pip3
+
+# download pip3 or make sure it's downloaded
+sudo apt-get install pip3
+# pipenv package for creating project directories with specific python3 version and dependencies
+pip3 install pipenv
+# Install python modules that I use in various projects
+pip3 install sqlite3 fastapi texttable colorama sqlalchemy wikipedia lxml
+
+# ----------------------------------------------------------------
+# SETUP PROTONVPN
+# install software dependencies for protonvpn community linux app
+
+echo -e "${red}INSTALLING PROTONVPN DEPENDENCIES${reset}"
+sudo apt install -y openvpn dialog python3-pip python3-setuptools
+
+sudo pip3 install protonvpn-cli
+
+echo "Beginning protonvpn init process"
+echo "log into protonvpn.com and access account credentials to continue"
+sudo protonvpn init
+
+
+
+
+
+
+
+
+
+
+
+
 
