@@ -108,8 +108,8 @@ sudo protonvpn init
 sudo apt-get install pip3
 # pipenv package for creating project directories with specific python3 version and dependencies
 pip3 install pipenv
-# Common python modules
-pip3 install sqlite3 fastapi texttable colorama sqlalchemy
+# Install python modules that I use in various projects
+pip3 install sqlite3 fastapi texttable colorama sqlalchemy wikipedia lxml
 
 
 
@@ -122,6 +122,7 @@ echo -e "${red}CONFIGURING GIT${reset}"
 git config --global user.name "snidarian"
 git config --global user.email "cephalopod31956@gmail.com"
 
+
 # make git_workfolders directory in home/user/ directory
 mkdir ~/git_workfolders
 cd ~/git_workfolders # cd directory to ~/git_workfolders before cloning all git repos
@@ -130,6 +131,8 @@ cd ~/git_workfolders # cd directory to ~/git_workfolders before cloning all git 
 
 # dotfiles - important configuration files
 git clone git@github.com:snidarian/dotfiles.git
+# bin - Folder that houses all the programs I want in my ~/bin folder.
+git clone git@github.com:snidarian/bin.git
 # bash scripts - essential bash scripts for various tasks
 git clone git@github.com:snidarian/bash_scripts.git
 # sandbox - for experimentation and command practice
@@ -142,7 +145,6 @@ git clone git@github.com:snidarian/linux_networking.git
 git clone git@github.com:snidarian/raspi_programs.git
 # vs code workfolder repository
 git clone git@github.com:snidarian/vs_code.git
-
 
 
 # change back to original home directory directory
@@ -166,11 +168,13 @@ if [[ $rc_file == "bash" ]]; then
 
     echo "# Add git bash_scripts repository folder to PATH" >> ~/.bashrc
     echo "PATH=\"$PATH:$HOME/git_workfolders/bash_scripts\"" >> ~/.bashrc
-    # add essential aliases
+    # add essential aliases; add ~/git_workfolders/bin to $PATH
     echo ""
     echo ""
     echo "# source aliases from bash_scripts to local .bashrc file" >> ~/.bashrc
     echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.bashrc
+    echo "# add ~/git_workfolders/bin to the $PATH" >> ~/.bashrc
+    echo "PATH=\"$PATH:~/git_workfolders/bin\"" >> ~/.bashrc
     
 elif [[ $rc_file == "zsh" ]]; then
     echo "Zsh chosen"
@@ -187,9 +191,11 @@ elif [[ $rc_file == "zsh" ]]; then
     echo "PATH=\"$PATH:$HOME/git_workfolders/bash_scripts\"" >> ~/.zshrc
     echo ""
     echo ""
-    # add essential aliases
+    # add essential aliases; add ~/git_workfolders/bin to $PATH
     echo "# source aliases from bash_scripts to local .bashrc file" >> ~/.zshrc
     echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.zshrc
+    echo "# add ~/git_workfolders/bin to the $PATH" >> ~/.zshrc
+    echo "PATH=\"$PATH:~/git_workfolders/bin\"" >> ~/.zshrc
 fi
 
 
