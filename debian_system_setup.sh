@@ -176,6 +176,9 @@ if [[ $rc_file == "bash" ]]; then
     echo ""
     echo "# source aliases from bash_scripts to local shell .rc file" >> ~/.bashrc
     echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.bashrc
+    # add $HOME/.local/bin to the path as fourth item
+    echo "# add .local/bin to the $PATH" >> ~/.bashrc
+    echo "PATH=\"$HOME/.local/bin:$PATH\"" >> ~/.bashrc
     # git_workfolders bin as third in path path
     echo "# add ~/git_workfolders/bin to the $PATH" >> ~/.bashrc
     echo "PATH=\"$HOME/git_workfolders/bin:$PATH\"" >> ~/.bashrc
@@ -200,6 +203,9 @@ elif [[ $rc_file == "zsh" ]]; then
     echo ""
     echo "# source aliases from bash_scripts to local shell .rc file" >> ~/.zshrc
     echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.zshrc
+    # add $HOME/.local/bin to the path as fourth item
+    echo "# add .local/bin to the $PATH" >> ~/.zshrc
+    echo "PATH=\"$HOME/.local/bin:$PATH\"" >> ~/.zshrc
     # git_workfolders bin as third in path path
     echo "# add ~/git_workfolders/bin to the $PATH" >> ~/.zshrc
     echo "PATH=\"$HOME/git_workfolders/bin:$PATH\"" >> ~/.zshrc
