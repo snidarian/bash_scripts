@@ -138,13 +138,21 @@ git clone git@github.com:snidarian/bash_scripts.git
 # sandbox - for experimentation and command practice
 git clone git@github.com:snidarian/sandbox.git
 # Language_fundamentals - where I keep the syntax files for various langauges
-git clone git@github.com:snidarian/Language_Fundamentals.git
+git clone git@github.com:snidarian/language_fundamentals.git
 # syntax and refreshers for linux networking commands and theory
 git clone git@github.com:snidarian/linux_networking.git
 # add raspi programs repo
 git clone git@github.com:snidarian/raspi_programs.git
 # vs code workfolder repository
 git clone git@github.com:snidarian/vs_code.git
+# pywik.py python3 wikipedia cli search tool repository
+git clone git@github.com:snidarian/pywik.git
+# bash quick reference
+git clone git@github.com:snidarian/Bash_quick_reference.git
+# book strings repo - storing quotes from books I've read
+git clone git@github.com:snidarian/Bash_quick_reference.git
+# manage_contacts.py
+git clone git@github.com:snidarian/Bash_quick_reference.git
 
 
 # change back to original home directory directory
@@ -198,7 +206,26 @@ elif [[ $rc_file == "zsh" ]]; then
     echo "PATH=\"$PATH:~/git_workfolders/bin\"" >> ~/.zshrc
 fi
 
+# ----------------------------------------------------------
+# ADD AND DOWNLOAD SELECT PROGRAMS TO HOME BIN DIRECTORY
 
+cd ~/bin
+
+# Download runescape Runelite client and authorize it
+wget https://github.com/runelite/launcher/releases/download/2.1.5/RuneLite.AppImage
+sudo chmod +x Runelite.AppImage
+
+# copy current pywik.py version to ~/bin as 'pywik'
+cp ~/git_workfolders/pywik/pywik.py ./pywik
+
+
+
+# Add other item to download or place in the home bin directory
+
+# back to home directory
+cd
+
+# ----------------------------------------------------------
 # PROMPT - ASK Y/N TO CHANGE HOSTNAME
 dialog --yesno "Your hostname is: $(hostname). \nWould you like to change it?" 15 60
 
