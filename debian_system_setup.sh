@@ -171,18 +171,20 @@ if [[ $rc_file == "bash" ]]; then
     echo ""
     echo ""
     echo "#----------------------------------------------" >> ~/.bashrc
-    echo "# USER ADDED Add home bin directory to PATH" >> ~/.bashrc
-    echo "PATH=\"$PATH:~/bin\"" >> ~/.bashrc
-
-    echo "# Add git bash_scripts repository folder to PATH" >> ~/.bashrc
-    echo "PATH=\"$PATH:$HOME/git_workfolders/bash_scripts\"" >> ~/.bashrc
-    # add essential aliases; add ~/git_workfolders/bin to $PATH
+    # add 'source from bash_aliases' to line to shell .rc file
     echo ""
     echo ""
-    echo "# source aliases from bash_scripts to local .bashrc file" >> ~/.bashrc
+    echo "# source aliases from bash_scripts to local shell .rc file" >> ~/.bashrc
     echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.bashrc
+    # git_workfolders bin as third in path path
     echo "# add ~/git_workfolders/bin to the $PATH" >> ~/.bashrc
-    echo "PATH=\"$PATH:~/git_workfolders/bin\"" >> ~/.bashrc
+    echo "PATH=\"$HOME/git_workfolders/bin:$PATH\"" >> ~/.bashrc
+    # add git_workfolders/bash_scripts as second folder in path
+    echo "# Add git bash_scripts repository folder to PATH" >> ~/.bashrc
+    echo "PATH=\"$HOME/git_workfolders/bash_scripts:$PATH\"" >> ~/.bashrc
+    # add home bin directory as first directory in path
+    echo "# Add home bin directory as first directory in PATH" >> ~/.bashrc
+    echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.bashrc
     
 elif [[ $rc_file == "zsh" ]]; then
     echo "Zsh chosen"
@@ -193,17 +195,23 @@ elif [[ $rc_file == "zsh" ]]; then
     echo ""
     echo ""
     echo "#----------------------------------------------" >> ~/.zshrc
-    echo "# USER ADDED Add home bin directory to PATH" >> ~/.zshrc
-    echo "PATH=\"$PATH:~/bin\"" >> ~/.zshrc
-    echo "# Add git bash_scripts repository folder to PATH" >> ~/.zshrc
-    echo "PATH=\"$PATH:$HOME/git_workfolders/bash_scripts\"" >> ~/.zshrc
+    # add 'source from bash_aliases' to line to shell .rc file
     echo ""
     echo ""
-    # add essential aliases; add ~/git_workfolders/bin to $PATH
-    echo "# source aliases from bash_scripts to local .bashrc file" >> ~/.zshrc
+    echo "# source aliases from bash_scripts to local shell .rc file" >> ~/.zshrc
     echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.zshrc
+    # git_workfolders bin as third in path path
     echo "# add ~/git_workfolders/bin to the $PATH" >> ~/.zshrc
-    echo "PATH=\"$PATH:~/git_workfolders/bin\"" >> ~/.zshrc
+    echo "PATH=\"$HOME/git_workfolders/bin:$PATH\"" >> ~/.zshrc
+    # add git_workfolders/bash_scripts as second folder in path
+    echo "# Add git bash_scripts repository folder to PATH" >> ~/.zshrc
+    echo "PATH=\"$HOME/git_workfolders/bash_scripts:$PATH\"" >> ~/.zshrc
+    # add home bin directory as first directory in path
+    echo "# Add home bin directory as first directory in PATH" >> ~/.zshrc
+    echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.zshrc
+
+    
+
 fi
 
 # ----------------------------------------------------------
