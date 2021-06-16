@@ -201,8 +201,11 @@ elif [[ $rc_file == "zsh" ]]; then
     # add 'source from bash_aliases' to line to shell .rc file
     echo ""
     echo ""
-    echo "# source aliases from bash_scripts to local shell .rc file" >> ~/.zshrc
+    echo "# source aliases from bash_scripts to .zshrc file" >> ~/.zshrc
     echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.zshrc
+    # add source from bash_scripts/zsh_keybindings.sh file
+    echo "# source keybindings from bash_scripts to shell .zshrc file" >> ~/.zshrc
+    echo "source ~/git_workfolders/bash_scripts/zsh_keybindings.sh" >> ~/.zshrc
     # add $HOME/.local/bin to the path as fourth item
     echo "# add .local/bin to the $PATH" >> ~/.zshrc
     echo "PATH=\"$HOME/.local/bin:$PATH\"" >> ~/.zshrc
