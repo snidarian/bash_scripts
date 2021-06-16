@@ -15,9 +15,16 @@ reset="\e[0m"
 # ----------------------------------------------------------------------
 # CUSTOM USER ALIAS DEFINITIONS                                                               
 
+# Set default editor to emacs -nw (no window (text-based) mode)
+export EDITOR='emacs -nw'                                                                                            
+# zshrc/bashrc alias command to modify .zshrc/.bashrc file
+alias zshrc="$EDITOR $HOME/.zshrc"  
+alias bashrc="$EDITOR $HOME/.bashrc"
+# modify the inputrc file
+alias inputrc="sudo $EDITOR -rv /etc/inputrc"
+
 # access contacts database
 alias contacts='manage_contacts.py ~/.contacts.db'
-
 
 # alarm variable/command (use with eval command)
 alarm_10_reps='i=0; while [[ $i -lt 10 ]]; do echo -ne "\a"; sleep .3; echo -ne "\a"; i=$((i+=1)); done'
@@ -46,6 +53,48 @@ alias pcls='while [ 1 ]; do cls; sleep 1; done'
 alias pclls='while [ 1 ]; do clls; sleep 1; done'
 alias pclas='while [ 1 ]; do clas; sleep 1; done'
 alias pcllas='while [ 1 ]; do cllas; sleep 1; done'
+
+
+# colorize diff output - requires colordiff program
+alias diff='colordiff'
+
+# History search aliases
+alias tailhist='history | tail -n $1'
+alias histgrep='history | grep -i $1'
+alias histcount='history | grep -ic $1'
+
+# Modify permissions
+alias authorize='sudo chmod +766'
+alias deauthorize='sudo chmod -777' # password-locks file
+
+# emacs alias definition
+alias enw='emacs -nw'
+alias anthomacs='emacs -nw -bg color-20 -fg yellow'
+
+
+# rm based definitions
+alias remove_tests='rm *.test'
+
+
+
+# ssh server commands
+# start
+alias start_ssh='sudo systemctl start ssh'
+# inquire status
+alias status_ssh='systemctl status ssh'
+# stop
+alias stop_ssh='sudo systemctl stop'
+
+
+# RASPI ALIAS DEFINITIONS
+
+# queries battery life percentage from pisugar-server daemon
+alias battery='sudo echo "get battery" | nc -q 0 127.0.0.1 8423'
+
+
+
+# ----------------------------------------------------------------------
+# CUSTOM USER FUNCTION DEFINITIONS                                                               
 
 
 # GIT FUNCTION DEFINITIONS
@@ -98,62 +147,11 @@ pull_and_source()
 }
 
 
-# colorize diff output - requires colordiff program
-alias diff='colordiff'
-
-
-# History search aliases
-alias tailhist='history | tail -n $1'
-alias histgrep='history | grep -i $1'
-alias histcount='history | grep -ic $1'
-
-# Modify permissions
-alias authorize='sudo chmod +766'
-alias deauthorize='sudo chmod -777' # password-locks file
-
-# emacs alias definition
-alias enw='emacs -nw'
-alias anthomacs='emacs -nw -bg color-20 -fg yellow'
-
-
-# rm based definitions
-alias remove_tests='rm *.test'
-
-
-
-# ssh server commands
-# start
-alias start_ssh='sudo systemctl start ssh'
-# inquire status
-alias status_ssh='sudo systemctl status ssh'
-# stop
-alias stop_ssh='sudo systemctl stop'
-
-
-# RASPI DEFINITIONS
-
-# queries battery life percentage from pisugar-server daemon
-alias battery='sudo echo "get battery" | nc -q 0 127.0.0.1 8423'
 
 
 
 
-# server/daemon definitions
-
-
-# apache server commands
-# apache2ctl start
-# apache2ctl stop
-# apache2ctl restart
-# systemctl status apache2
-
-
-
-
-
-
-
-# -------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------
 
 
 

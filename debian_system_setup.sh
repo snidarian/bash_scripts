@@ -215,7 +215,6 @@ elif [[ $rc_file == "zsh" ]]; then
     # add home bin directory as first directory in path
     echo "# Add home bin directory as first directory in PATH" >> ~/.zshrc
     echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.zshrc
-
     
 
 fi
