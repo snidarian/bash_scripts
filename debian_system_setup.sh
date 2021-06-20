@@ -31,6 +31,8 @@ sudo apt update && sudo apt upgrade
 # ----------------------------------------------------------------
 # software list
 
+# install htop
+sudo apt-get install htop
 # git
 sudo apt-get install git
 # emacs
