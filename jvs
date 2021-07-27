@@ -17,7 +17,7 @@ function connect_p2p()
 {
     
     echo "----------------------------------------------"
-    echo "########  Connecting  to P2P server ##########"
+    echo -e "########${green}  Connecting  to P2P server ${reset}##########"
     echo "########  ########################  ##########"
     echo "----------------------------------------------"
     sudo protonvpn c --p2p
@@ -37,7 +37,7 @@ function ls_alpha2_country_codes()
 function connect_random()
 {
     echo "------------------------------------------------"
-    echo "########  Connecting to random server  #########"
+    echo -e "########${blue}  Connecting to random server  ${reset}#########"
     echo "########  ###########################  #########"
     echo "------------------------------------------------"
     sudo protonvpn c -r
@@ -51,7 +51,7 @@ function connect_random()
 function protonvpn_status()
 {
     echo "----------------------------------------------"
-    echo "########          VPN STATUS        ##########"
+    echo -e "########          ${green}VPN STATUS${reset}        ##########"
     echo "########  ########################  ##########"
     echo "----------------------------------------------"
     protonvpn status
@@ -63,7 +63,7 @@ function disconnect()
 {    
     sudo protonvpn disconnect
     echo "--------------------"
-    echo "    DISCONNECTED    "
+    echo -e "    ${red}DISCONNECTED${reset}    "
     echo "--------------------"
     protonvpn status
 }
@@ -71,7 +71,7 @@ function disconnect()
 # EXECUTIONS
 
 
-while getopts :sdlpc: OPT; do
+while getopts :sdlprc: OPT; do
     case $OPT in
 	s|+s)
 	    protonvpn_status
@@ -84,6 +84,9 @@ while getopts :sdlpc: OPT; do
 	    ;;
 	p|+p)
 	    connect_p2p
+	    ;;
+	r|+r)
+	    connect_random
 	    ;;
 	c|+c)
 	    #"$OPTARG"
