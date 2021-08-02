@@ -9,7 +9,6 @@ reset="\e[0m"
 
 commits_actual=0
 
-
 while [[ $commits_actual -lt $1 ]]; do
     echo -ne "commit|\n" >> file.txt
     sleep .1
