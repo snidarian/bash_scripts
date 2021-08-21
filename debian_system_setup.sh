@@ -268,6 +268,21 @@ elif [[ $change == 1 ]]; then
 fi
 
 
+# PROMPT - ASK TO GENERATE RSA SSH public/private key pair
+dialog --yesno "Generate SSH public/private key pair?" 15 60
+
+# Exit variable used in control flow
+change="$?"
+clear
+
+if [[ $change == 0 ]]; then
+    # Generate SSH key pair
+    ssh-keygen -b 4096 -t rsa
+elif [[ $change == 1 ]]; then
+    echo "SSH key pair not generated"
+fi
+
+
 
 # List all Firefox browser plugins to install from the command line
 # Associative array for listing all browser add-ons/plugins:
