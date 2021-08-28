@@ -68,10 +68,14 @@ function disconnect()
     protonvpn status
 }
 
+
+icelandic_p2p_servers=( "IS#1" "IS#2" "IS#5" "IS#6" )
+
+
 # EXECUTIONS
 
 
-while getopts :sdlprc: OPT; do
+while getopts :sdlprgtc: OPT; do
     case $OPT in
 	s|+s)
 	    protonvpn_status
@@ -87,6 +91,14 @@ while getopts :sdlprc: OPT; do
 	    ;;
 	r|+r)
 	    connect_random
+	    ;;
+	g|+g)
+	    # Connect to server through GUI
+	    sudo protonvpn c
+	    ;;
+	t|+t)
+	    # Connect to random Icelandic P2P server
+	    sudo protonvpn c "${icelandic_p2p_servers[$(shuf -n 1 -i 0-3)]}"
 	    ;;
 	c|+c)
 	    #"$OPTARG"
