@@ -21,16 +21,37 @@ function connect_p2p()
     echo "########  ########################  ##########"
     echo "----------------------------------------------"
     sudo protonvpn c --p2p
-    protonvpn status
-    echo "--------------------"
-    echo "  Connected to P2P  "
-    echo "--------------------"
+    if [ "$?" -eq 0 ]; then
+	echo "--------------------"
+	echo "  Connected to P2P  "
+	echo "--------------------"
+	protonvpn status
+    else
+	echo "Connection failed..."
+	exit 1
+    fi
 }
 
 # list alpha-2 country codes
 function ls_alpha2_country_codes()
 {
     echo -e "${green}Argentina: ${red}AR\n${green}Belgium: ${red}BE\n${green}Brazil: ${red}BR\n${green}Colombia: ${red}CO\n${green}Croatia: ${red}HR\n${green}Denmark: ${red}DK\n${green}Estonia: ${red}EE\n${green}Finland: ${red}FI\n${green}France: ${red}FR\n${green}Iceland: ${red}IS\n${green}Netherlands: ${red}NL\n${green}Singapore: ${red}SG\n${green}Switzerland: ${red}CH\n${green}South Africa: ${red}ZA\n${green}United States: ${red}US\n"
+}
+
+
+function connect_random_coolcountry_p2p_server()
+{
+    echo "Attempting connection to privacy-respecting country's P2P server"
+    sudo protonvpn c "${superfree_p2p_servers[$(shuf -n 1 -i 0-3)]}"
+    if [ "$?" -eq 0 ]; then
+	echo "######################################"
+	echo "CONNECTED TO 'COOL COUNTRY' VPN SERVER"
+	echo "######################################"
+	protonvpn status
+    else
+	echo "Connection failed..."
+	exit 1
+    fi	    
 }
 
 
@@ -41,10 +62,16 @@ function connect_random()
     echo "########  ###########################  #########"
     echo "------------------------------------------------"
     sudo protonvpn c -r
-    protonvpn status
-    echo "----------------------"
-    echo "  Connected to Rando  "
-    echo "----------------------"
+    if [ "$?" -eq 0 ]; then
+	echo "----------------------"
+	echo "  Connected to Rando  "
+	echo "----------------------"
+	protonvpn status
+    else
+	echo "Connection failed..."
+	exit 1
+    fi
+	
 }
 
 
@@ -69,7 +96,7 @@ function disconnect()
 }
 
 
-icelandic_p2p_servers=( "IS#1" "IS#2" "IS#5" "IS#6" )
+superfree_p2p_servers=( "IS#1" "IS#2" "IS#5" "IS#6" )
 
 
 # EXECUTIONS
@@ -97,8 +124,8 @@ while getopts :sdlprgtc: OPT; do
 	    sudo protonvpn c
 	    ;;
 	t|+t)
-	    # Connect to random Icelandic P2P server
-	    sudo protonvpn c "${icelandic_p2p_servers[$(shuf -n 1 -i 0-3)]}"
+	    # Connect to random privacy-respecting country's P2P server
+	    connect_random_coolcountry_p2p_server
 	    ;;
 	c|+c)
 	    #"$OPTARG"
