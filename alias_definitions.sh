@@ -58,6 +58,11 @@ alias pcllas='while [ 1 ]; do cllas; sleep 1; done'
 # colorize diff output - requires colordiff program
 alias diff='colordiff'
 
+
+# Grep should ALWAYS have regex color highlighting
+alias grep='grep --color=auto'
+
+
 # History search aliases
 alias tailhist='history | tail -n $1'
 alias histgrep='history | grep -i $1'
