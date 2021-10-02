@@ -111,8 +111,30 @@ sudo apt-get install pip3
 # pipenv package for creating project directories with specific python3 version and dependencies
 pip3 install pipenv
 # Install python modules that I use in various projects
-pip3 install sqlite3 fastapi texttable colorama sqlalchemy wikipedia lxml
+pip3 install sqlite3 fastapi texttable colorama sqlalchemy wikipedia lxml selenium pynput pyautogui
 
+
+# ####################################################
+# GENERATE KEY AND ADD KEY TO GITHUB
+
+# PROMPT - ASK TO GENERATE RSA SSH public/private key pair
+dialog --yesno "Generate SSH public/private key pair?" 15 60
+
+# Exit variable used in control flow
+change="$?"
+clear
+
+if [[ $change == 0 ]]; then
+    # Generate SSH key pair
+    ssh-keygen -b 4096 -t rsa
+elif [[ $change == 1 ]]; then
+    echo "SSH key pair not generated"
+fi
+
+
+echo -e "${red}GO ADD CURRENT PUBLIC KEY TO GITHUB${reset} (if not done already)."
+echo "Press Enter to continue"
+read placeholder_variable
 
 
 # -------------------------------------------------------------------------
@@ -268,25 +290,6 @@ elif [[ $change == 1 ]]; then
 fi
 
 
-# ####################################################
-# GENERATE KEY AND ADD KEY TO GITHUB
-
-# PROMPT - ASK TO GENERATE RSA SSH public/private key pair
-dialog --yesno "Generate SSH public/private key pair?" 15 60
-
-# Exit variable used in control flow
-change="$?"
-clear
-
-if [[ $change == 0 ]]; then
-    # Generate SSH key pair
-    ssh-keygen -b 4096 -t rsa
-elif [[ $change == 1 ]]; then
-    echo "SSH key pair not generated"
-fi
-
-
-
 # List all Firefox browser plugins to install from the command line
 # Associative array for listing all browser add-ons/plugins:
 declare -A aa
@@ -297,10 +300,11 @@ aa[3]="Privacy Badger"
 aa[4]="Ghostery"
 aa[5]="Midnight Lizard"
 aa[6]="Vimium C"
-aa[7]="React dev tools"
+aa[7]="xpath finder"
+aa[8]="React dev tools"
 
 
-echo "List of Firefox Add-ons to install"
+echo "Reminder list of Firefox Add-ons to install"
 
 for item in "${aa[@]}"; do
     echo -ne "${gree}$item${reset}, "
