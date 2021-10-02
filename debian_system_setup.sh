@@ -268,6 +268,9 @@ elif [[ $change == 1 ]]; then
 fi
 
 
+# ####################################################
+# GENERATE KEY AND ADD KEY TO GITHUB
+
 # PROMPT - ASK TO GENERATE RSA SSH public/private key pair
 dialog --yesno "Generate SSH public/private key pair?" 15 60
 
