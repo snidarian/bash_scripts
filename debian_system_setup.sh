@@ -37,6 +37,8 @@ sudo apt-get install htop
 sudo apt-get install git
 # emacs
 sudo apt-get install emacs
+# vim
+sudo apt-get install vim
 # ccrypt
 sudo apt-get install ccrypt
 # tclsh
