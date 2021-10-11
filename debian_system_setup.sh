@@ -53,6 +53,8 @@ sudo apt-get install dialog
 sudo apt-get install npm
 # install openssh-server
 sudo apt-get install openssh-server
+# install tree (terminal system directory hierarchy viewer)
+sudo apt-get install tree
 
 # NETWORK TOOLS/COMMANDS
 # net-tools (for ifconfig)
