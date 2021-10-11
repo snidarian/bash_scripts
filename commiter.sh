@@ -22,37 +22,3 @@ while [[ $commits_actual -lt $1 ]]; do
 done
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
