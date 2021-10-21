@@ -57,6 +57,8 @@ sudo apt-get install openssh-server
 sudo apt-get install tree
 
 # NETWORK TOOLS/COMMANDS
+# curl
+sudo apt-get install curl
 # net-tools (for ifconfig)
 sudo apt-get install net-tools
 # install reimplementation of traditional netcat (contains -e and -c flags)
