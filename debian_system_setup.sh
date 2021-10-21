@@ -55,6 +55,8 @@ sudo apt-get install npm
 sudo apt-get install openssh-server
 # install tree (terminal system directory hierarchy viewer)
 sudo apt-get install tree
+# install ffmpeg
+sudo apt-get install ffmpeg
 
 # NETWORK TOOLS/COMMANDS
 # curl
