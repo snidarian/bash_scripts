@@ -80,6 +80,9 @@ alias anthomacs='emacs -nw -bg color-20 -fg yellow'
 # rm based definitions
 alias remove_tests='rm *.test'
 
+# protonvpn definitions
+alias iceland='sudo protonvpn c IS#1'
+
 
 
 # ssh server commands
