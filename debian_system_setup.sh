@@ -57,6 +57,8 @@ sudo apt-get install openssh-server
 sudo apt-get install tree
 # install ffmpeg
 sudo apt-get install ffmpeg
+# install Stress - a program used to spawning workers to simulate system load
+sudo apt-get install stress
 
 # NETWORK TOOLS/COMMANDS
 # curl
