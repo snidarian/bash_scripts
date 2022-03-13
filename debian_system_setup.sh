@@ -46,10 +46,12 @@ sudo apt-get install tclsh
 # Common LISP
 sudo apt-get install clisp
 # JDK
+echo "Install JDK?"
 sudo apt-get install default-jdk
 # install dialog command for Bash GUIs
 sudo apt-get install dialog
 # install npm (node package manager)
+echo "Install node package manager?"
 sudo apt-get install npm
 # install openssh-server
 sudo apt-get install openssh-server
