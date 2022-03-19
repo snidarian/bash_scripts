@@ -1,15 +1,17 @@
 # --------------------------------------------------------------------------------------------------
 
 # color ansi escape variables
-black="\e[1;3m"
-red="\e[1;31m"
-green="\e[1;32m"
-yellow="\e[1;33m"
-blue="\e[1;34m"
-purple="\e[1;35m"
-cyan="\e[1;36m"
-white="\e[1;37m"
-reset="\e[0m"
+
+# COLORED ANSI ESCAPE SEQUENCES
+black="\e[1;30m"        #Black
+red="\e[1;31m"          #Red
+green="\e[1;32m"        #Green
+yellow="\e[1;33m"       #Yellow
+blue="\e[1;34m"         #Blue
+purple="\e[1;35m"       #Purple
+cyan="\e[1;36m"         #Cyan
+white="\e[1;37m"        #White
+reset="\e[0m"           #Reset
 
 
 # ----------------------------------------------------------------------
@@ -121,19 +123,19 @@ display_battery_capacity()
     # Make recommendation about battery capacity
     if [ $battery_capacity -gt 80 ]; then
         echo "Make sure to discharge to 80% battery before shutting down"
-        echo "Battery Capacity $yellow= $red$battery_capacity$reset"
+        echo -e "Battery Capacity $yellow= $red$battery_capacity$reset"
     elif [ $battery_capacity -gt 20 ] && [ $battery_capacity -lt 80 ]; then
-        echo "$blue Battery within optimal working capacity$reset"
-        echo "Battery Capacity $yellow= $green$battery_capacity$reset"
+        echo -e "$blue Battery within optimal working capacity$reset"
+        echo -e "Battery Capacity $yellow= $green$battery_capacity$reset"
     elif [ $battery_capacity -lt 20 ]; then
         echo "TURN OFF LAPTOP AND CHARGE BATTERY TO %80"
-        echo "Battery Capacity $yellow= $red$battery_capacity$reset"
+        echo -e "Battery Capacity $yellow= $red$battery_capacity$reset"
     fi
     # Make recommendation about charging
     if [ $is_charging = "Charging" ]; then
         echo "$yellow ...DO NOT CHARGE WHILE DEVICE IS ON!$reset"
     fi
-    echo "Charge cycle $yellow= $red$charge_cycle"
+    echo -e "Charge cycle $yellow= $red$charge_cycle"
 #    echo "Status $yellow= $white$is_charching$reset"
 #    echo "Model $yellow= $white$battery_model$reset"
 #    echo "Tech $yellow= $white$technology$reset"
