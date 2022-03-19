@@ -105,6 +105,46 @@ alias battery='sudo echo "get battery" | nc -q 0 127.0.0.1 8423'
 # CUSTOM USER FUNCTION DEFINITIONS                                                               
 
 
+
+# Bettery display function for laptops
+# depends on information stored in /sys/class/power_supply/BAT0/
+
+
+# function that gives battery life in colored output
+display_battery_capacity()
+{
+    battery_capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
+    is_charging="$(cat /sys/class/power_supply/BAT0/status)"
+    battery_model="$(cat /sys/class/power_supply/BAT0/model_name)"
+    technology="$(cat /sys/class/power_supply/BAT0/technology)"
+    charge_cycle="$(cat /sys/class/power_supply/BAT0/cycle_count)"
+    # Make recommendation about battery capacity
+    if [ $battery_capacity -gt 80 ]; then
+        echo "Make sure to discharge to 80% battery before shutting down"
+        echo "Battery Capacity $yellow= $red$battery_capacity$reset"
+    elif [ $battery_capacity -gt 20 ] && [ $battery_capacity -lt 80 ]; then
+        echo "$blue Battery within optimal working capacity$reset"
+        echo "Battery Capacity $yellow= $green$battery_capacity$reset"
+    elif [ $battery_capacity -lt 20 ]; then
+        echo "TURN OFF LAPTOP AND CHARGE BATTERY TO %80"
+        echo "Battery Capacity $yellow= $red$battery_capacity$reset"
+    fi
+    # Make recommendation about charging
+    if [ $is_charging = "Charging" ]; then
+        echo "$yellow ...DO NOT CHARGE WHILE DEVICE IS ON!$reset"
+    fi
+    echo "Charge cycle $yellow= $red$charge_cycle"
+#    echo "Status $yellow= $white$is_charching$reset"
+#    echo "Model $yellow= $white$battery_model$reset"
+#    echo "Tech $yellow= $white$technology$reset"
+
+}
+
+# Alias the above function to a single word 'battery'
+alias battery='display_battery_capacity'
+
+
+############################################################################
 # GIT FUNCTION DEFINITIONS
 all_in() { git add -A; git commit -m "$1"; git push; }
 
