@@ -25,7 +25,7 @@ count=0
 for file in $tracklist; do
     count=$((count+1))
     echo "$count"
-#    echo "Track = $file"
+    echo "Track = $file"
     mediainfo --Inform="General;%Genre%" $file; echo ""
 done
 
