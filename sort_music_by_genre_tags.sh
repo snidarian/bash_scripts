@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 # function of script is to find genres of all mp3s in target directory and reorganize them into genre subfolders
-# Script not yet completed
+
+# Takes all .mp3 files in base directory and moves them to new directories in the base directory that are named based in their genre tag.
 
 
 
