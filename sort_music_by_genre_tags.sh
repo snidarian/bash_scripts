@@ -40,18 +40,20 @@ for file in $tracklist; do
 	echo -e "${green}$count. ${red}$file${reset}"
 	genre="$(mediainfo --Inform="General;%Genre%" $file)"
 	# make sure all '/' are exchanged with '_' in genre tag
-	adjusted_genre="$(sed 's/\//_/' <<< $genre)"
+	adjusted_genre="$(sed 's/\//_/g' <<< $genre)"
+	final_genre="$(sed 's/\x27//g' <<< $adjusted_genre)"
 	echo "adjusted genre= $adjusted_genre"
-	if [ -e "$base_dir$adjusted_genre" ]; then
+	echo "final genre= $final_genre"
+	if [ -e "$base_dir$final_genre" ]; then
 	    echo -e "${white}file exists${reset}"	    
 	    echo "mv $file to $base_dir$adjusted_genre"
-	    mv "$file" $base_dir$adjusted_genre
-	elif [ ! -e "$base_dir$adjusted_genre" ]; then
+	    mv "$file" $base_dir$final_genre
+	elif [ ! -e "$base_dir$final_genre" ]; then
 	    echo -e "${blue}file doesnt exist${reset}"	    	    
 	    echo -e "${green}$count${reset}"
-	    mkdir "$base_dir$adjusted_genre"
-	    echo "mv $file $base_dir$adjusted_genre"
-	    mv "$file" $base_dir$adjusted_genre
+	    mkdir "$base_dir$final_genre"
+	    echo "mv $file $base_dir$final_genre"
+	    mv "$file" $base_dir$final_genre
 	fi
     fi
    
