@@ -42,7 +42,6 @@ for file in $tracklist; do
 	# make sure all '/' are exchanged with '_' in genre tag
 	adjusted_genre="$(sed 's/\//_/g' <<< $genre)"
 	final_genre="$(sed 's/\x27//g' <<< $adjusted_genre)"
-	echo "adjusted genre= $adjusted_genre"
 	echo "final genre= $final_genre"
 	if [ -e "$base_dir$final_genre" ]; then
 	    echo -e "${white}file exists${reset}"	    
