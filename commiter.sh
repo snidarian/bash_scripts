@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+# program that autocommits
+
 
 # color escape sequences
 red="\e[1;31m"
