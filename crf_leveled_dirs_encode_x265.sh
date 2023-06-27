@@ -9,12 +9,17 @@
 
 
 
-while getopts :b: OPT; do
+while getopts :b:m OPT; do
     case $OPT in
 	b|+b)
 
 	    #grandfather directory (base directory)
 	    basedir="$OPTARG"
+	    format="mp4"
+	    ;;
+	m|+m)
+	    # Change format of output files to MKV
+	    format="mkv"
 	    ;;
 	*)
 	    echo "usage: `basename $0` [+-b ARG} [--] ARGS..."
@@ -38,7 +43,7 @@ do
     echo "Now at level $crf control rate factor";
     for file in *;
     do
-	ffmpeg -i "$file" -vcodec libx265 -crf $crf ~/Videos/staging/"$file"-$quality.mp4;
+	ffmpeg -i "$file" -vcodec libx265 -crf $crf ~/Videos/staging/"$file"-$quality.$format;
     done;
     cd ..;
 done
