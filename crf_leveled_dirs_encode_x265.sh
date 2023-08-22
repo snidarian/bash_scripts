@@ -43,7 +43,7 @@ do
     echo "Now at level $crf control rate factor";
     for file in *;
     do
-	ffmpeg -i "$file" -vcodec libx265 -crf $crf ~/Videos/staging/"$file"-$quality.$format;
+	ffmpeg -i "$file" -vcodec libx265 -crf $crf ~/Videos/staging/crf/"$file"-$quality.$format;
     done;
     cd ..;
 done
