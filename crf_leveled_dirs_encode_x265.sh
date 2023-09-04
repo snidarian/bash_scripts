@@ -8,6 +8,8 @@
 # Note that these subdirectories must be titled with the CRF that you wish to use; "28" as a subdirectory name for instance will use a CRF of 28. Simple stuff.
 
 
+# by default DO NOT copy subtitle streams unless specified with -s flag
+
 
 while getopts :b:m OPT; do
     case $OPT in
