@@ -19,6 +19,8 @@ do
     cd "$crf_dir"
     for directory in *;
     do
+	echo -e "######################################################################\n"
+	echo -e "######################################################################\n"
 	cd "$directory"
 	echo -e "\nCurrent dir: $(pwd)"
 	#Get video file name
