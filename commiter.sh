@@ -11,12 +11,14 @@ reset="\e[0m"
 
 commits_actual=0
 
+
 while [[ $commits_actual -lt $1 ]]; do
-    echo -ne "commit|\n" >> file.txt
+    hexdump commiter.sh > file.txt
+#    echo -ne "commit|\n" >> file.txt
     sleep .1
     git add -A
     sleep .1
-    git commit -m "Just another commit"
+    git commit -m "internally generated commit ID#$RANDOM"
     sleep .1
     git push
     commits_actual=$((commits_actual+1))
