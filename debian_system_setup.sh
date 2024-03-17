@@ -163,6 +163,8 @@ if [[ $rc_file == "bash" ]]; then
     
 elif [[ $rc_file == "zsh" ]]; then
     echo "Zsh chosen"
+    # cat overwrite Kali style zsh setup from ~/Repositories/dotfiles/zshrc
+    cat ~/Repositories/dotfiles/zshrc > ~/.zshrc
     # ----------------------------------------------------------
     # Setup home bin folder and add ~/bin to the PATH variable
     # make home bin directory
