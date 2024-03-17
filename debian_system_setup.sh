@@ -29,91 +29,18 @@ echo "Setting up system essentials for $(id -un)@$(hostname)"
 sudo apt update && sudo apt upgrade
 
 # ----------------------------------------------------------------
-# software list
+echo "########################"
+echo "Primary software payload"
+echo "########################"
 
-# install htop
-sudo apt-get install htop
-# git
-sudo apt-get install git
-# emacs
-sudo apt-get install emacs
-# vim
-sudo apt-get install vim
-# ccrypt
-sudo apt-get install ccrypt
-# tclsh
-sudo apt-get install tclsh
-# Common LISP
-sudo apt-get install clisp
-# JDK
-echo "Install JDK?"
-sudo apt-get install default-jdk
-# install dialog command for Bash GUIs
-sudo apt-get install dialog
-# install npm (node package manager)
-echo "Install node package manager?"
-sudo apt-get install npm
-# install openssh-server
-sudo apt-get install openssh-server
-# install tree (terminal system directory hierarchy viewer)
-sudo apt-get install tree
-# install ffmpeg
-sudo apt-get install ffmpeg
-# install Stress - a program used to spawning workers to simulate system load
-sudo apt-get install stress
+# install main preffered software
+sudo apt-get install htop git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc
 
-# NETWORK TOOLS/COMMANDS
-# curl
-sudo apt-get install curl
-# net-tools (for ifconfig)
-sudo apt-get install net-tools
-# install reimplementation of traditional netcat (contains -e and -c flags)
-sudo apt-get install ncat
-# install net-tools (for ifconfig)
-sudo apt-get install net-tools
-# Install openssh-server
-sudo apt-get install openssh-server
-# install macchanger program
-sudo apt-get install macchanger
-# tcpdump
-sudo apt-get install tcpdump
-# install nmap
-sudo apt-get install nmap
-# install arp-scan
-sudo apt-get install arp-scan
-# install whois command
-sudo apt-get install whois
-# install wireshark
-sudo apt-get install wireshark
-# install netdiscover (active/passive) network scanning
-sudo apt-get install netdiscover
-# install ipcalc
-sudo apt-get install ipcalc
+echo "######################"
+echo "multimedia and misc"
+echo "######################"
 
-
-# multimedia and misc
-# vlc multimedia player
-sudo apt-get install vlc
-# install fbreader
-sudo apt-get install fbreader
-# dict command for command line english dictionary definitions
-sudo apt-get install dict
-# install rsync for maintaining data archives efficiently
-sudo apt-get install rsync
-
-# ---------------------------------------------------------------
-# SETUP PROTONVPN
-# install software dependencies for protonvpn community linux app
-
-echo -e "${red}INSTALLING PROTONVPN DEPENDENCIES${reset}"
-sudo apt install -y openvpn dialog python3-pip python3-setuptools
-
-sudo pip3 install protonvpn-cli
-
-echo "Beginning protonvpn init process"
-echo "log into protonvpn.com and access account credentials to continue"
-sudo protonvpn init
-
+sudo apt-get install ffmpeg rsync dict fbreader vlc
 
 # ----------------------------------------------------------------
 # Setup Python3 & Python3 dependencies
@@ -121,9 +48,8 @@ sudo protonvpn init
 # download pip3
 sudo apt-get install pip3
 # pipenv package for creating project directories with specific python3 version and dependencies
-pip3 install pipenv
 # Install python modules that I use in various projects
-pip3 install sqlite3 fastapi texttable colorama sqlalchemy wikipedia lxml selenium pynput pyautogui
+pip3 install sqlite3 fastapi texttable colorama sqlalchemy wikipedia lxml selenium pynput pyautogui pipenv
 
 
 # ####################################################
@@ -159,9 +85,9 @@ git config --global user.name "snidarian"
 git config --global user.email "cephalopod31956@gmail.com"
 
 
-# make git_workfolders directory in home/user/ directory
-mkdir ~/git_workfolders
-cd ~/git_workfolders # cd directory to ~/git_workfolders before cloning all git repos
+# mkdir Repositories directory
+mkdir ~/Repositories
+cd ~/Repositories 
 
 # git repository clone list
 
