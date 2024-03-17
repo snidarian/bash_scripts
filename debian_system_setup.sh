@@ -34,10 +34,9 @@ echo "Primary software payload"
 echo "########################"
 
 # install main preffered software
-sudo apt-get install htop git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc
+sudo apt-get install htop neofetch cmatrix git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc
 
 
-# Download zsh ecosystem regardless of if its requested by user
 echo "################################"
 echo "Downloading zsh debian ecosystem"
 echo "################################"
@@ -159,6 +158,8 @@ if [[ $rc_file == "bash" ]]; then
     # add home bin directory as first directory in path
     echo "# Add home bin directory as first directory in PATH" >> ~/.bashrc
     echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.bashrc
+    # add neofetch line to .bashrc
+    echo "neofetch" >> ~/.bashrc
     
 elif [[ $rc_file == "zsh" ]]; then
     echo "Zsh chosen"
@@ -189,6 +190,8 @@ elif [[ $rc_file == "zsh" ]]; then
     # add home bin directory as first directory in path
     echo "# Add home bin directory as first directory in PATH" >> ~/.zshrc
     echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.zshrc
+    # add neofetch line to .zshrc
+    echo "neofetch" >> ~/.zshrc
     
 
 fi
