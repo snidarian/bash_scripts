@@ -37,6 +37,7 @@ echo "########################"
 sudo apt-get install htop git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc
 
 
+# Download zsh ecosystem regardless of if its requested by user
 echo "################################"
 echo "Downloading zsh debian ecosystem"
 echo "################################"
@@ -197,16 +198,10 @@ fi
 
 cd ~/bin
 
-# Download runescape Runelite client and authorize it
-wget https://github.com/runelite/launcher/releases/download/2.1.5/RuneLite.AppImage
-sudo chmod +x Runelite.AppImage
-
 # copy current pywik.py version to ~/bin as 'pywik'
 cp ~/git_workfolders/pywik/pywik.py ./pywik
 
 
-
-# Add other item to download or place in the home bin directory
 
 # back to home directory
 cd
@@ -247,7 +242,7 @@ aa[4]="Ghostery"
 aa[5]="Midnight Lizard"
 aa[6]="Vimium C"
 aa[7]="xpath finder"
-aa[8]="React dev tools"
+
 
 
 echo "Reminder list of Firefox Add-ons to install"
