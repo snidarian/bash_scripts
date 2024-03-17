@@ -36,6 +36,14 @@ echo "########################"
 # install main preffered software
 sudo apt-get install htop git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc
 
+
+echo "################################"
+echo "Downloading zsh debian ecosystem"
+echo "################################"
+
+sudo apt-get install zsh*
+
+
 echo "######################"
 echo "multimedia and misc"
 echo "######################"
@@ -137,16 +145,16 @@ if [[ $rc_file == "bash" ]]; then
     echo ""
     echo ""
     echo "# source aliases from bash_scripts to local shell .rc file" >> ~/.bashrc
-    echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.bashrc
+    echo "source ~/Repositories/bash_scripts/alias_definitions.sh" >> ~/.bashrc
     # add $HOME/.local/bin to the path as fourth item
     echo "# add .local/bin to the $PATH" >> ~/.bashrc
     echo "PATH=\"$HOME/.local/bin:$PATH\"" >> ~/.bashrc
     # git_workfolders bin as third in path path
-    echo "# add ~/git_workfolders/bin to the $PATH" >> ~/.bashrc
-    echo "PATH=\"$HOME/git_workfolders/bin:$PATH\"" >> ~/.bashrc
+    echo "# add ~/Repositories/bin to the $PATH" >> ~/.bashrc
+    echo "PATH=\"$HOME/Repositories/bin:$PATH\"" >> ~/.bashrc
     # add git_workfolders/bash_scripts as second folder in path
     echo "# Add git bash_scripts repository folder to PATH" >> ~/.bashrc
-    echo "PATH=\"$HOME/git_workfolders/bash_scripts:$PATH\"" >> ~/.bashrc
+    echo "PATH=\"$HOME/Repositories/bash_scripts:$PATH\"" >> ~/.bashrc
     # add home bin directory as first directory in path
     echo "# Add home bin directory as first directory in PATH" >> ~/.bashrc
     echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.bashrc
@@ -164,19 +172,19 @@ elif [[ $rc_file == "zsh" ]]; then
     echo ""
     echo ""
     echo "# source aliases from bash_scripts to .zshrc file" >> ~/.zshrc
-    echo "source ~/git_workfolders/bash_scripts/alias_definitions.sh" >> ~/.zshrc
+    echo "source ~/Repositories/bash_scripts/alias_definitions.sh" >> ~/.zshrc
     # add source from bash_scripts/zsh_keybindings.sh file
     echo "# source keybindings from bash_scripts to shell .zshrc file" >> ~/.zshrc
-    echo "source ~/git_workfolders/bash_scripts/zsh_keybindings.sh" >> ~/.zshrc
+    echo "source ~/Repositories/bash_scripts/zsh_keybindings.sh" >> ~/.zshrc
     # add $HOME/.local/bin to the path as fourth item
     echo "# add .local/bin to the $PATH" >> ~/.zshrc
     echo "PATH=\"$HOME/.local/bin:$PATH\"" >> ~/.zshrc
     # git_workfolders bin as third in path path
-    echo "# add ~/git_workfolders/bin to the $PATH" >> ~/.zshrc
-    echo "PATH=\"$HOME/git_workfolders/bin:$PATH\"" >> ~/.zshrc
+    echo "# add ~/Repositories/bin to the $PATH" >> ~/.zshrc
+    echo "PATH=\"$HOME/Repositories/bin:$PATH\"" >> ~/.zshrc
     # add git_workfolders/bash_scripts as second folder in path
     echo "# Add git bash_scripts repository folder to PATH" >> ~/.zshrc
-    echo "PATH=\"$HOME/git_workfolders/bash_scripts:$PATH\"" >> ~/.zshrc
+    echo "PATH=\"$HOME/Repositories/bash_scripts:$PATH\"" >> ~/.zshrc
     # add home bin directory as first directory in path
     echo "# Add home bin directory as first directory in PATH" >> ~/.zshrc
     echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.zshrc
