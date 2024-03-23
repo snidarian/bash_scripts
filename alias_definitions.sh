@@ -25,9 +25,6 @@ alias bashrc="$EDITOR $HOME/.bashrc"
 # modify the inputrc file
 alias inputrc="sudo $EDITOR -rv /etc/inputrc"
 
-# access contacts database
-alias contacts='manage_contacts.py ~/.contacts.db'
-
 # alarm variable/command (use with eval command)
 alarm_10_reps='i=0; while [[ $i -lt 10 ]]; do echo -ne "\a"; sleep .3; echo -ne "\a"; i=$((i+=1)); done'
 
@@ -70,30 +67,10 @@ alias tailhist='history | tail -n $1'
 alias histgrep='history | grep -i $1'
 alias histcount='history | grep -ic $1'
 
-# Modify permissions
-alias authorize='sudo chmod +766'
-alias deauthorize='sudo chmod -777' # password-locks file
 
 # emacs alias definition
 alias enw='emacs -nw'
 alias anthomacs='emacs -nw -bg color-20 -fg yellow'
-
-
-# rm based definitions
-alias remove_tests='rm *.test'
-
-# protonvpn definitions
-alias iceland='sudo protonvpn c IS#1'
-
-
-
-# ssh server commands
-# start
-alias start_ssh='sudo systemctl start ssh'
-# inquire status
-alias status_ssh='systemctl status ssh'
-# stop
-alias stop_ssh='sudo systemctl stop'
 
 
 # RASPI ALIAS DEFINITIONS
@@ -152,7 +129,7 @@ all_in() { git add -A; git commit -m "$1"; git push; }
 
 # pulls all changes from remote repositories and merges them
 pull_all() { pwd="$(pwd)";
-	     for foldervar in ~/git_workfolders/*;
+	     for foldervar in ~/Repositories/*;
 	     do
 		 cd "$foldervar";
 		 git pull;
@@ -160,9 +137,9 @@ pull_all() { pwd="$(pwd)";
 	     cd "$pwd";
 	   }
 
-# pushes all repository changes (all repos in ~/git_workfolders)
+# pushes all repository changes (all repos in ~/Repositories)
 push_all() { comment=$1; pwd="$(pwd)";
-	     for foldervar in ~/git_workfolders/*;
+	     for foldervar in ~/Repositories/*;
 	     do
 		 cd "$foldervar";
 		 git add -A;
@@ -173,9 +150,9 @@ push_all() { comment=$1; pwd="$(pwd)";
 	     cd "$pwd";
 	   }
 
-# Reports 'git status' on all repositories in ~/git/workfolders
+# Reports 'git status' on all repositories in ~/Repositories
 status_all() { pwd="$(pwd)";
-	       for foldervar in ~/git_workfolders/*;
+	       for foldervar in ~/Repositories/*;
 	       do
 		   echo -e "${blue}$foldervar${reset}"
 		   cd "$foldervar";
@@ -190,9 +167,9 @@ status_all() { pwd="$(pwd)";
 pull_and_source()
 {
     # pull bash_scripts repo                                                                                                                              
-    cd ~/git_workfolders/bash_scripts; git pull; cd;
+    cd ~/Repositories/bash_scripts; git pull; cd;
     # source aliases from bash_scripts to local .bashrc or .zshrc file
-    source ~/git_workfolders/bash_scripts/alias_definitions.sh
+    source ~/Repositories/bash_scripts/alias_definitions.sh
     # clear
 }
 

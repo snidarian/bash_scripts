@@ -34,7 +34,7 @@ echo "Primary software payload"
 echo "########################"
 
 # install main preffered software
-sudo apt-get install htop neofetch cmatrix git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc
+sudo apt-get install htop neofetch cmatrix git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc ansiweather
 
 
 echo "################################"
@@ -160,6 +160,8 @@ if [[ $rc_file == "bash" ]]; then
     echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.bashrc
     # add neofetch line to .bashrc
     echo "neofetch" >> ~/.bashrc
+    # add weather forcast line
+    echo 'ansiweather -l "$(cat ~/.LOCATION)" -u imperial' >> ~/.bashrc
     
 elif [[ $rc_file == "zsh" ]]; then
     echo "Zsh chosen"
@@ -194,6 +196,8 @@ elif [[ $rc_file == "zsh" ]]; then
     echo "PATH=\"$HOME/bin:$PATH\"" >> ~/.zshrc
     # add neofetch line to .zshrc
     echo "neofetch" >> ~/.zshrc
+    # add weather forcast line
+    echo 'ansiweather -l "$(cat ~/.LOCATION)" -u imperial' >> ~/.zshrc
     
 
 fi
@@ -204,7 +208,7 @@ fi
 cd ~/bin
 
 # copy current pywik.py version to ~/bin as 'pywik'
-cp ~/git_workfolders/pywik/pywik.py ./pywik
+cp ~/Repositories/pywik/pywik.py ./pywik
 
 
 
@@ -260,4 +264,14 @@ echo ""
 
 
 
+############################################
+#########SETUP USER LOCATION################
+############################################
+
+
+## used for purposes of displaying local weather on terminal startup
+
+touch ~/.LOCATION
+
+dialog --inputbox "Input your location [city],[state],[country]\nFor example: Canton,PA,US or Montgomery,AL,US\nThis info is used for displaying openweather data on terminal startup" 10 75 2> ~/.LOCATION
 
