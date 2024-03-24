@@ -1,11 +1,13 @@
 #!/usr/bin/bash
 
-# This script quickly sets up a debian based system for my personal use
+# This script quickly sets up a debian based system for personal use
 # script will prompt user for selection of bash (.bashrc) or zsh (.zshrc)
 
 # MAKE SURE PRIOR TO RUNNING THIS SCRIPT TO DO THE FOLLOWING:
 # 1. run ssh-keygen to generate rsa public key
 # 2. add said key to list of public ssh keys on github.com
+
+
 
 # DEFINITIONS
 
@@ -34,7 +36,7 @@ echo "Primary software payload"
 echo "########################"
 
 # install main preffered software
-sudo apt-get install htop neofetch cmatrix git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc ansiweather
+sudo apt-get install htop neofetch cmatrix git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc ansiweather 
 
 
 echo "################################"
@@ -275,3 +277,12 @@ touch ~/.LOCATION
 
 dialog --inputbox "Input your location [city],[state],[country]\nFor example: Canton,PA,US or Montgomery,AL,US\nThis info is used for displaying openweather data on terminal startup" 10 75 2> ~/.LOCATION
 
+
+
+
+
+##########################################################
+#display reminder to download personal VPN and initialize#
+##########################################################
+
+dialog --infobox "Remember to set up personal VPN" 9 50
