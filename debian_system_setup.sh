@@ -161,7 +161,7 @@ if [[ $rc_file == "bash" ]]; then
     # add neofetch line to .bashrc
     echo "neofetch" >> ~/.bashrc
     # add weather forcast line
-    echo 'ansiweather -l "$(cat ~/.LOCATION)" -u imperial' >> ~/.bashrc
+    echo 'ansiweather -l "$(cat ~/.LOCATION)" -u imperial -a false' >> ~/.bashrc
     
 elif [[ $rc_file == "zsh" ]]; then
     echo "Zsh chosen"
@@ -197,7 +197,7 @@ elif [[ $rc_file == "zsh" ]]; then
     # add neofetch line to .zshrc
     echo "neofetch" >> ~/.zshrc
     # add weather forcast line
-    echo 'ansiweather -l "$(cat ~/.LOCATION)" -u imperial' >> ~/.zshrc
+    echo 'ansiweather -l "$(cat ~/.LOCATION)" -u imperial -a false' >> ~/.zshrc
     
 
 fi
