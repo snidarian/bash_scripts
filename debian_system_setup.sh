@@ -36,7 +36,7 @@ echo "Primary software payload"
 echo "########################"
 
 # install main preffered software
-sudo apt-get install htop neofetch cmatrix git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc ansiweather 
+sudo apt-get install htop neofetch cmatrix git emacs ccrypt tclsh clisp dialog openssh-server tree stress baobab curl net-tools ncat macchanger tcpdump nmap arp-scan whois wireshark netdiscover ipcalc ansiweather keepassxc
 
 
 echo "################################"
