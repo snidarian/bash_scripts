@@ -136,6 +136,8 @@ rc_file=$(dialog --stdout --menu ".bashrc or .zshrc?" 10 30 2 bash .bashrc zsh .
 
 if [[ $rc_file == "bash" ]]; then
     echo "Bash chosen"
+    # set bash as default login shell (if not already)
+    chsh -s /usr/bin/bash
     #    ----------------------------------------------------------
     # Setup home bin folder and add ~/bin to the PATH variable
     # make home bin directory
@@ -167,6 +169,8 @@ if [[ $rc_file == "bash" ]]; then
     
 elif [[ $rc_file == "zsh" ]]; then
     echo "Zsh chosen"
+    # set zsh as default login shell
+    chsh -s /usr/bin/zsh
     # cat overwrite Kali style zsh setup from ~/Repositories/dotfiles/zshrc
     cat ~/Repositories/dotfiles/zshrc > ~/.zshrc
     # ----------------------------------------------------------
