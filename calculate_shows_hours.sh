@@ -59,7 +59,7 @@ do
 		miliseconds="$(sed s/.000000// <<< $(mediainfo --Inform="Video;%Duration%" "$subdirectory"))"
 		seconds="$(expr $miliseconds / 1000)"
 		total_sec="$(expr $secs + $total_sec)"
-		echo -e "${red}"
+		echo -e "${cyan}"
 		echo -n "$subdirectory:"
 		echo -ne "${reset}"
 		echo -n " $total_sec seconds"
